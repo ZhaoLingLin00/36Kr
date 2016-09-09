@@ -61,7 +61,7 @@ public class MainActivity extends AbsBaseActivity {
             }
         });
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setTabTextColors();
+//        tabLayout.setTabTextColors();
         tabLayout.getTabAt(0).setText("新闻").setIcon(R.drawable.selector_news);
         tabLayout.getTabAt(1).setText("股权投资").setIcon(R.drawable.selector_equity);
         tabLayout.getTabAt(2).setText("发现").setIcon(R.drawable.selector_discovery);
