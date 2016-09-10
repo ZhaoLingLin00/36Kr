@@ -21,9 +21,9 @@ import java.util.List;
 
 public class MainActivity extends AbsBaseActivity {
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private List<Fragment> fragments;
+    private TabLayout mainTabLayout;
+    private ViewPager mainViewPager;
+    private List<Fragment> mainFragments;
 
 
 
@@ -34,39 +34,39 @@ public class MainActivity extends AbsBaseActivity {
 
     @Override
     protected void initViews() {
-        tabLayout = byView(R.id.main_tab_layout);
-        viewPager = byView(R.id.main_viewpager);
-
+        mainTabLayout = byView(R.id.main_tab_layout);
+        mainViewPager = byView(R.id.main_viewpager);
+        mainFragments = new ArrayList<>();
     }
 
     @Override
     protected void initDatas() {
-        fragments = new ArrayList<>();
 
-        fragments.add(new NewsFragment());
-        fragments.add(new EquityFragment());
-        fragments.add(new DiscoveryFragment());
-        fragments.add(new MessageFragment());
-        fragments.add(new MineFragment());
 
-        viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+        mainFragments.add(new NewsFragment());
+        mainFragments.add(new EquityFragment());
+        mainFragments.add(new DiscoveryFragment());
+        mainFragments.add(new MessageFragment());
+        mainFragments.add(new MineFragment());
+
+        mainViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return fragments.get(position);
+                return mainFragments.get(position);
             }
 
             @Override
             public int getCount() {
-                return fragments.size();
+                return mainFragments.size();
             }
         });
-        tabLayout.setupWithViewPager(viewPager);
-//        tabLayout.setTabTextColors();
-        tabLayout.getTabAt(0).setText("新闻").setIcon(R.drawable.selector_news);
-        tabLayout.getTabAt(1).setText("股权投资").setIcon(R.drawable.selector_equity);
-        tabLayout.getTabAt(2).setText("发现").setIcon(R.drawable.selector_discovery);
-        tabLayout.getTabAt(3).setText("消息").setIcon(R.drawable.selector_message);
-        tabLayout.getTabAt(4).setText("我的").setIcon(R.drawable.selector_mine);
+        mainTabLayout.setupWithViewPager(mainViewPager);
+        mainTabLayout.setTabTextColors(Color.BLACK,Color.argb(255,72,118,255));
+        mainTabLayout.getTabAt(0).setText("新闻").setIcon(R.drawable.selector_news);
+        mainTabLayout.getTabAt(1).setText("股权投资").setIcon(R.drawable.selector_equity);
+        mainTabLayout.getTabAt(2).setText("发现").setIcon(R.drawable.selector_discovery);
+        mainTabLayout.getTabAt(3).setText("消息").setIcon(R.drawable.selector_message);
+        mainTabLayout.getTabAt(4).setText("我的").setIcon(R.drawable.selector_mine);
 
 
     }

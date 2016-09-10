@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!--抽屉背景-->
+    <color name="colorDrawer">#fff</color>
+    <!--主题蓝色-->
+    <color name="colorTheme">#4876FF</color>
+    <!---->
+    <color name="colorMainLoginText">#fff</color>
+
 </resources>
