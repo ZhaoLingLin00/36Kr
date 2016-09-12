@@ -1,5 +1,7 @@
 package com.zhaolinglin00.a36kr.ui.fragment;
 
+import android.os.Bundle;
+
 import com.zhaolinglin00.a36kr.R;
 
 /**
@@ -7,6 +9,15 @@ import com.zhaolinglin00.a36kr.R;
  * 消息Fragment
  */
 public class MessageFragment extends AbsBaseFragment{
+
+    public static MessageFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        MessageFragment fragment = new MessageFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     protected int setLayout() {
         return R.layout.fragment_message;

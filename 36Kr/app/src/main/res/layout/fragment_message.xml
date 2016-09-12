@@ -1,11 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/message_title_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="消息"
+            android:layout_margin="20dp"
+            android:layout_centerInParent="true"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/message_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/message_title_rl"
+        android:background="#dcdcdc"/>
+
+    <RelativeLayout
+        android:id="@+id/message_private_letter_rl"
+        android:layout_below="@id/message_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/message_private_letter_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/message_icon_unfollow"/>
+        <TextView
+            android:id="@+id/message_private_letter_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="私信"
+            android:layout_toRightOf="@id/message_private_letter_img"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/message_pending_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0条待处理消息"
+            android:layout_toRightOf="@id/message_private_letter_img"
+            android:layout_below="@id/message_private_letter_tv"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc"
+            android:layout_below="@id/message_private_letter_img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/message_comment_rl"
+        android:layout_below="@id/message_private_letter_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/message_comment_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/message_icon_comment"/>
+        <TextView
+            android:id="@+id/message_comment_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论"
+            android:layout_toRightOf="@id/message_comment_img"
+            android:textSize="18sp"
+            android:layout_centerVertical="true" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc"
+            android:layout_below="@id/message_comment_img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/message_like_rl"
+        android:layout_below="@id/message_comment_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/message_like_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/message_icon_like"/>
+        <TextView
+            android:id="@+id/message_like_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="赞"
+            android:layout_toRightOf="@id/message_like_img"
+            android:textSize="18sp"
+            android:layout_centerVertical="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc"
+            android:layout_below="@id/message_like_img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/message_service_rl"
+        android:layout_below="@id/message_like_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/message_service_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/message_icon_services"/>
+        <TextView
+            android:id="@+id/message_service_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="客服助手"
+            android:layout_toRightOf="@id/message_service_img"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/message_solve_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="快速及时为您解决问题"
+            android:layout_toRightOf="@id/message_service_img"
+            android:layout_below="@id/message_service_tv"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc"
+            android:layout_below="@id/message_service_img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/message_else_rl"
+        android:layout_below="@id/message_service_rl"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="消息"/>
-</LinearLayout>
+
+        >
+        <ImageView
+            android:id="@+id/message_else_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/message_icon_notification"/>
+        <TextView
+            android:id="@+id/message_else_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="其他消息"
+            android:layout_toRightOf="@id/message_else_img"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc"
+            android:layout_below="@id/message_else_img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

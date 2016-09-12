@@ -3,13 +3,12 @@ package com.zhaolinglin00.a36kr.ui.fragment;
 import com.zhaolinglin00.a36kr.R;
 
 /**
- * Created by dllo on 16/9/10.
- * 股权投资的TabLayout的 全部 的Fragment
+ * Created by dllo on 16/9/12.
  */
-public class EquityAllFragment extends AbsBaseFragment {
+public class LoginFragment extends AbsBaseFragment {
     @Override
     protected int setLayout() {
-        return R.layout.fragment_equity_all;
+        return R.layout.fragment_login;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.zhaolinglin00.a36kr.ui.fragment;
 
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +17,15 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private ImageView newsMenuImg;
     private DrawerLayout newsDrawerLayout;
     private LinearLayout newsDrawerll;
+
+    public static NewsFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        NewsFragment fragment = new NewsFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     protected int setLayout() {
         return R.layout.fragment_news;

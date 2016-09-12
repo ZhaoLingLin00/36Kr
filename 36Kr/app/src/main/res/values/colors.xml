@@ -7,7 +7,7 @@
     <color name="colorDrawer">#fff</color>
     <!--主题蓝色-->
     <color name="colorTheme">#4876FF</color>
-    <!---->
+    <!--布局填充色-->
     <color name="colorMainLoginText">#fff</color>
 
 </resources>

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:id="@+id/news_drawerlayout"
-    >
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="6">
+        android:weightSum="10">
 
         <RelativeLayout
+            android:id="@+id/news_title_rl"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -24,7 +23,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="新闻"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
+
 
             <ImageView
                 android:id="@+id/news_menu"
@@ -42,45 +42,49 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:src="@mipmap/nav_icon_search" />
-        </RelativeLayout>
 
-        <ImageView
+
+        </RelativeLayout>
+        <View
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_height="1dp"
+            android:background="#dcdcdc"/>
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="10dp"
-            android:layout_weight="3" />
+            android:layout_weight="9" />
+
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/news_drawerll"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_gravity="start|left"
         android:background="@color/colorDrawer"
-        >
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="200dp"
             android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/news_drawer_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/news_toolbar_icon_back"
-                android:layout_margin="20dp"/>
+                android:layout_margin="20dp"
+                android:src="@mipmap/news_toolbar_icon_back" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/news_drawer_back"
                 android:layout_marginLeft="40dp"
-                android:textSize="20sp"
                 android:layout_marginRight="100dp"
-                android:text="全部"/>
+                android:text="全部"
+                android:textSize="20sp" />
         </RelativeLayout>
     </LinearLayout>
 

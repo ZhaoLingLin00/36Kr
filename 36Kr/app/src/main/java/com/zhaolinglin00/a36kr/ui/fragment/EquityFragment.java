@@ -1,6 +1,7 @@
 package com.zhaolinglin00.a36kr.ui.fragment;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,9 +18,18 @@ import java.util.List;
  */
 public class EquityFragment extends AbsBaseFragment{
 
-    private TabLayout equityTablayout;
+    private TabLayout equityTabLayout;
     private ViewPager equityViewPager;
     private List<Fragment> equityFragments;
+
+    public static EquityFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        EquityFragment fragment = new EquityFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     protected int setLayout() {
         return R.layout.fragment_equity;
@@ -27,7 +37,7 @@ public class EquityFragment extends AbsBaseFragment{
 
     @Override
     protected void initViews() {
-        equityTablayout= byView(R.id.equity_tab_layout);
+        equityTabLayout= byView(R.id.equity_tab_layout);
         equityViewPager = byView(R.id.equity_viewpager);
         equityFragments = new ArrayList<>();
     }
@@ -35,10 +45,10 @@ public class EquityFragment extends AbsBaseFragment{
     @Override
     protected void initDatas() {
 
-        equityFragments.add(new EquityAllFragment());
-        equityFragments.add(new EquityFundraisingFragment());
-        equityFragments.add(new EquityCompleteFragment());
-        equityFragments.add(new EquitySuccessFragment());
+        equityFragments.add(EquityRecycleUseFragment.newInstance());
+        equityFragments.add(EquityRecycleUseFragment.newInstance());
+        equityFragments.add(EquityRecycleUseFragment.newInstance());
+        equityFragments.add(EquityRecycleUseFragment.newInstance());
 
         equityViewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
@@ -51,12 +61,12 @@ public class EquityFragment extends AbsBaseFragment{
                 return equityFragments.size();
             }
         });
-        equityTablayout.setupWithViewPager(equityViewPager);
-        equityTablayout.setTabTextColors(Color.BLACK,Color.argb(255,72,118,255));
-        equityTablayout.getTabAt(0).setText("全部");
-        equityTablayout.getTabAt(1).setText("募资中");
-        equityTablayout.getTabAt(2).setText("募资完成");
-        equityTablayout.getTabAt(3).setText("融资成功");
+        equityTabLayout.setupWithViewPager(equityViewPager);
+        equityTabLayout.setTabTextColors(Color.BLACK,Color.argb(255,72,118,255));
+        equityTabLayout.getTabAt(0).setText("全部");
+        equityTabLayout.getTabAt(1).setText("募资中");
+        equityTabLayout.getTabAt(2).setText("募资完成");
+        equityTabLayout.getTabAt(3).setText("融资成功");
 
 
     }

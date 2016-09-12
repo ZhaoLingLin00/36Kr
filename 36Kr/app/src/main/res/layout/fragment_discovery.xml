@@ -194,20 +194,148 @@
                     android:layout_alignRight="@id/discovery_number_tv"
                     android:layout_below="@id/discovery_project_tv"
                     android:layout_marginTop="10dp"
-                    android:background="#9d9d9d" />
+                    android:background="#dcdcdc" />
 
-                <FrameLayout
-                    android:id="@+id/discovery_fl"
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_below="@id/discovery_view"
+                    android:id="@+id/discovery_rl"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_below="@id/discovery_view" />
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/discovery_project1_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/discovery_project_logo1_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_launcher"
+                            android:layout_marginTop="20dp"
+                            />
+                        <TextView
+                            android:id="@+id/discovery_project_name1_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="项目名字"
+                            android:layout_toRightOf="@id/discovery_project_logo1_img"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20sp"/>
+                        <TextView
+                            android:id="@+id/discovery_project_introduce1_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="项目介绍"
+                            android:layout_below="@id/discovery_project_name1_tv"
+                            android:layout_toRightOf="@id/discovery_project_logo1_img"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="创始人介绍"
+                            android:layout_below="@id/discovery_project_introduce1_img"
+                            android:layout_toRightOf="@id/discovery_project_logo1_img"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_below="@id/discovery_project1_img"
+                        android:id="@+id/discovery_project2_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/discovery_project_logo2_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_launcher"
+                            android:layout_marginTop="20dp"
+                            />
+                        <TextView
+                            android:id="@+id/discovery_project_name2_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="项目名字"
+                            android:layout_toRightOf="@id/discovery_project_logo2_img"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20sp"/>
+                        <TextView
+                            android:id="@+id/discovery_project_introduce2_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="项目介绍"
+                            android:layout_below="@id/discovery_project_name2_tv"
+                            android:layout_toRightOf="@id/discovery_project_logo2_img"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="创始人介绍"
+                            android:layout_below="@id/discovery_project_introduce2_img"
+                            android:layout_toRightOf="@id/discovery_project_logo2_img"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_below="@id/discovery_project2_img"
+                        android:id="@+id/discovery_project3_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/discovery_project_logo3_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_launcher"
+                            android:layout_marginTop="20dp"
+                            />
+                        <TextView
+                            android:id="@+id/discovery_project_name_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="项目名字"
+                            android:layout_toRightOf="@id/discovery_project_logo3_img"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:textSize="20sp"/>
+                        <TextView
+                            android:id="@+id/discovery_project_introduce_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="项目介绍"
+                            android:layout_below="@id/discovery_project_name_tv"
+                            android:layout_toRightOf="@id/discovery_project_logo3_img"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="创始人介绍"
+                            android:layout_below="@id/discovery_project_introduce_img"
+                            android:layout_toRightOf="@id/discovery_project_logo3_img"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"/>
+                    </RelativeLayout>
+                </RelativeLayout>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/discovery_information_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/discovery_days_img"
-                    android:layout_below="@id/discovery_fl"
+                    android:layout_below="@id/discovery_rl"
                     android:text="投资速递"
                     android:textSize="20sp" />
 
@@ -215,7 +343,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignRight="@id/discovery_number_tv"
-                    android:layout_below="@id/discovery_fl"
+                    android:layout_below="@id/discovery_rl"
                     android:text="快速了解股权投资" />
 
                 <View
@@ -226,7 +354,7 @@
                     android:layout_alignRight="@id/discovery_number_tv"
                     android:layout_below="@id/discovery_information_tv"
                     android:layout_marginTop="10dp"
-                    android:background="#9d9d9d" />
+                    android:background="#dcdcdc" />
 
                 <TextView
                     android:id="@+id/discovery_news"
@@ -270,12 +398,12 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="10dp"
-            android:background="#9d9d9d" />
+            android:background="#dcdcdc" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="15dp"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -380,7 +508,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#9d9d9d"/>
+            android:background="#dcdcdc"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -393,7 +521,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:src="@mipmap/discovery_icon_entrepreneurs"/>
+                android:src="@mipmap/discovery_icon_new_investor"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -411,6 +539,5 @@
         </RelativeLayout>
 
     </LinearLayout>
-
 
 </ScrollView>

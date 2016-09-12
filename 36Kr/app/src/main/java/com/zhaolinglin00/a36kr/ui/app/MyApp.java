@@ -7,6 +7,7 @@ import android.content.Context;
  * Created by dllo on 16/9/8.
  * 当前应用
  *   需要在清单文件中注册
+ *   只给网络和数据库用
  */
 public class MyApp extends Application{
 
