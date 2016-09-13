@@ -5,22 +5,21 @@ import android.os.Bundle;
 import com.zhaolinglin00.a36kr.R;
 
 /**
- * Created by dllo on 16/9/12.
+ * Created by dllo on 16/9/13.
  */
-public class LoginFragment extends AbsBaseFragment {
+public class RegisterFragment extends AbsBaseFragment {
 
-
-    public static LoginFragment newInstance() {
+    public static RegisterFragment newInstance() {
         
         Bundle args = new Bundle();
         
-        LoginFragment fragment = new LoginFragment();
+        RegisterFragment fragment = new RegisterFragment();
         fragment.setArguments(args);
         return fragment;
     }
     @Override
     protected int setLayout() {
-        return R.layout.fragment_login;
+        return R.layout.fragment_register;
     }
 
     @Override

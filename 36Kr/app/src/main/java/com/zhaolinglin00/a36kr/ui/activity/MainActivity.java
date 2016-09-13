@@ -42,7 +42,6 @@ public class MainActivity extends AbsBaseActivity {
     @Override
     protected void initDatas() {
 
-
         mainFragments.add(NewsFragment.newInstance());
         mainFragments.add(EquityFragment.newInstance());
         mainFragments.add(DiscoveryFragment.newInstance());
