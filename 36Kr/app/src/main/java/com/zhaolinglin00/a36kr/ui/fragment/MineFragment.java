@@ -50,6 +50,7 @@ public class MineFragment extends AbsBaseFragment {
         mineLoginTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 点击跳转
                 goTo(LogInActivity.class);
 
             }

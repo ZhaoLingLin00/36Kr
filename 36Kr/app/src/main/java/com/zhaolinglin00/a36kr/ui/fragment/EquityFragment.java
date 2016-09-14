@@ -1,13 +1,16 @@
 package com.zhaolinglin00.a36kr.ui.fragment;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.widget.ListView;
 
 import com.zhaolinglin00.a36kr.R;
+import com.zhaolinglin00.a36kr.ui.adapter.EquityAllAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,8 @@ import java.util.List;
  * 股权投资fragment
  */
 public class EquityFragment extends AbsBaseFragment{
+
+
 
     private TabLayout equityTabLayout;
     private ViewPager equityViewPager;
@@ -40,10 +45,14 @@ public class EquityFragment extends AbsBaseFragment{
         equityTabLayout= byView(R.id.equity_tab_layout);
         equityViewPager = byView(R.id.equity_viewpager);
         equityFragments = new ArrayList<>();
+
+
+
     }
 
     @Override
     protected void initDatas() {
+
 
         equityFragments.add(EquityRecycleUseFragment.newInstance());
         equityFragments.add(EquityRecycleUseFragment.newInstance());
@@ -67,6 +76,8 @@ public class EquityFragment extends AbsBaseFragment{
         equityTabLayout.getTabAt(1).setText("募资中");
         equityTabLayout.getTabAt(2).setText("募资完成");
         equityTabLayout.getTabAt(3).setText("融资成功");
+
+
 
 
     }

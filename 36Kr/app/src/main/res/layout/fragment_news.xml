@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/news_drawerlayout"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/news_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -56,39 +56,39 @@
             android:id="@+id/news_listview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:layout_weight="9" />
+            android:layout_weight="9"
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 
-    <!--<LinearLayout-->
-        <!--android:id="@+id/news_drawerll"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="start|left"-->
-        <!--android:background="@color/colorDrawer"-->
-        <!--android:orientation="vertical">-->
+    <LinearLayout
+        android:id="@+id/news_drawer_linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|left"
+        android:background="@color/colorDrawer"
+        android:orientation="vertical">
 
-        <!--<RelativeLayout-->
-            <!--android:layout_width="200dp"-->
-            <!--android:layout_height="match_parent">-->
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent">
 
-            <!--<ImageView-->
-                <!--android:id="@+id/news_drawer_back"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_margin="20dp"-->
-                <!--android:src="@mipmap/news_toolbar_icon_back" />-->
+            <ImageView
+                android:id="@+id/news_drawer_back_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:src="@mipmap/news_toolbar_icon_back" />
 
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_below="@id/news_drawer_back"-->
-                <!--android:layout_marginLeft="40dp"-->
-                <!--android:layout_marginRight="100dp"-->
-                <!--android:text="全部"-->
-                <!--android:textSize="20sp" />-->
-        <!--</RelativeLayout>-->
-    <!--</LinearLayout>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/news_drawer_back_img"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="100dp"
+                android:text="全部"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</android.support.v4.widget.DrawerLayout>

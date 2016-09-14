@@ -17,7 +17,7 @@ import com.zhaolinglin00.a36kr.ui.activity.AbsBaseActivity;
  */
 public abstract class AbsBaseFragment extends Fragment{
 
-    private Context context;
+    protected Context context;
 
     @Override
     public void onAttach(Context context) {

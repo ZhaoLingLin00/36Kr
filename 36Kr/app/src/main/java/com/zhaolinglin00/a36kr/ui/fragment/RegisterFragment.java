@@ -6,6 +6,8 @@ import com.zhaolinglin00.a36kr.R;
 
 /**
  * Created by dllo on 16/9/13.
+ *
+ * 我的界面TabLayout的注册Fragment
  */
 public class RegisterFragment extends AbsBaseFragment {
 

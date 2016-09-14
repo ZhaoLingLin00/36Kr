@@ -6,6 +6,7 @@ import com.zhaolinglin00.a36kr.R;
 
 /**
  * Created by dllo on 16/9/12.
+ * 我的页面TabLayout登录的Fragment
  */
 public class LoginFragment extends AbsBaseFragment {
 

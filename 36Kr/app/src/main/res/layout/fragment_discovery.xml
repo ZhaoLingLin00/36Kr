@@ -176,7 +176,7 @@
                     android:layout_alignLeft="@id/discovery_days_img"
                     android:layout_below="@id/discovery_indent_tv"
                     android:text="热门项目"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/discovery_project_tv"
@@ -337,7 +337,7 @@
                     android:layout_alignLeft="@id/discovery_days_img"
                     android:layout_below="@id/discovery_rl"
                     android:text="投资速递"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -365,31 +365,31 @@
                     android:layout_marginTop="20dp"
                     android:background="@drawable/shape_discovery_information"
                     android:text="行业新闻"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/discovery_trends"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/discovery_view2"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_alignTop="@id/discovery_news"
                     android:layout_toRightOf="@id/discovery_news"
                     android:background="@drawable/shape_discovery_information"
                     android:text="项目动态"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/discovery_view2"
                     android:layout_marginBottom="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_alignTop="@id/discovery_news"
                     android:layout_toRightOf="@id/discovery_trends"
                     android:background="@drawable/shape_discovery_information"
                     android:text="行业新闻"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -424,7 +424,7 @@
                     android:layout_marginTop="30dp"
                     android:text="发现好项目"
                     android:textColor="@color/colorTheme"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -459,7 +459,7 @@
                     android:layout_marginTop="30dp"
                     android:text="寻找投资人"
                     android:textColor="@color/colorTheme"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"

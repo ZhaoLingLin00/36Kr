@@ -5,11 +5,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.zhaolinglin00.a36kr.R;
-import com.zhaolinglin00.a36kr.ui.adapter.NewsAdapter;
 import com.zhaolinglin00.a36kr.ui.fragment.DiscoveryFragment;
 import com.zhaolinglin00.a36kr.ui.fragment.EquityFragment;
 import com.zhaolinglin00.a36kr.ui.fragment.MessageFragment;
@@ -19,13 +16,14 @@ import com.zhaolinglin00.a36kr.ui.fragment.NewsFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 主界面
+ */
 public class MainActivity extends AbsBaseActivity {
 
     private TabLayout mainTabLayout;
     private ViewPager mainViewPager;
     private List<Fragment> mainFragments;
-
-
 
     @Override
     protected int setLayout() {

@@ -1,9 +1,6 @@
 package com.zhaolinglin00.a36kr.ui.adapter;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +11,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.zhaolinglin00.a36kr.R;
 import com.zhaolinglin00.a36kr.model.bean.NewsBean;
+import com.zhaolinglin00.a36kr.utils.ScreenSizeUtil;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -60,7 +57,14 @@ public class NewsAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         NewsViewHolder newsViewHolder =null;
         if (convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_news,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_news_listview,parent,false);
+
+
+            int height = ScreenSizeUtil.getScreenheight(context);
+            ViewGroup.LayoutParams params = convertView.getLayoutParams();
+            params.height = height/7;
+            convertView.setLayoutParams(params);
+
             newsViewHolder = new NewsViewHolder(convertView);
             convertView.setTag(newsViewHolder);
         }else {
@@ -74,6 +78,7 @@ public class NewsAdapter extends BaseAdapter {
             newsViewHolder.newsAuthorTv.setText(dataBean1.getUser().getName());
             newsViewHolder.newsDateTv.setText(dataBean1.getPublishTime()+"");
             Picasso.with(context).load(dataBean1.getFeatureImg()).into(newsViewHolder.newsLogoImg);
+
         }
 
         return convertView;

@@ -14,6 +14,8 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/12.
+ *
+ * 登录页面Activity
  */
 public class LogInActivity extends AbsBaseActivity {
 
@@ -30,11 +32,12 @@ public class LogInActivity extends AbsBaseActivity {
     protected void initViews() {
         loginTabLayout = byView(R.id.login_tablayout);
         loginViewPager = byView(R.id.login_viewpager);
-        loginFragments = new ArrayList<>();
     }
 
     @Override
     protected void initDatas() {
+        loginFragments = new ArrayList<>();
+
         loginFragments.add(LoginFragment.newInstance());
         loginFragments.add(RegisterFragment.newInstance());
 
