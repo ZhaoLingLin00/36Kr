@@ -10,15 +10,15 @@ import com.zhaolinglin00.a36kr.R;
  */
 public class LoginFragment extends AbsBaseFragment {
 
-
     public static LoginFragment newInstance() {
-        
+
         Bundle args = new Bundle();
-        
+
         LoginFragment fragment = new LoginFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_login;

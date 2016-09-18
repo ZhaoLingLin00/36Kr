@@ -43,8 +43,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:src="@mipmap/nav_icon_search" />
-
-
         </RelativeLayout>
 
         <View
@@ -56,8 +54,8 @@
             android:id="@+id/news_listview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="9"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:layout_weight="9" />
 
     </LinearLayout>
 
@@ -90,5 +88,4 @@
                 android:textSize="20sp" />
         </RelativeLayout>
     </LinearLayout>
-
 </android.support.v4.widget.DrawerLayout>

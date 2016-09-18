@@ -8,20 +8,21 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1.5"
         android:background="@color/colorTheme">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:src="@mipmap/mine_icon_close"/>
+            android:src="@mipmap/mine_icon_close" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorTheme"
             android:layout_centerInParent="true"
-            android:src="@mipmap/login_icon_logo"/>
+            android:background="@color/colorTheme"
+            android:src="@mipmap/login_icon_logo" />
 
     </RelativeLayout>
 
@@ -29,15 +30,17 @@
         android:id="@+id/login_tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorTheme"/>
+        android:background="@color/colorTheme" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#dcdcdc"/>
+        android:background="#dcdcdc" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/login_viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="3.5" />
 
 </LinearLayout>

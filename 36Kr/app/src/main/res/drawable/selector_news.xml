@@ -2,7 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--新闻标签选择器-->
-    <item android:drawable="@mipmap/tabbar_icon_news_highlight"
-        android:state_selected="true"/>
-    <item android:drawable="@mipmap/tabbar_icon_news"/>
+    <item android:drawable="@mipmap/tabbar_icon_news_highlight" android:state_selected="true" />
+    <item android:drawable="@mipmap/tabbar_icon_news" />
 </selector>

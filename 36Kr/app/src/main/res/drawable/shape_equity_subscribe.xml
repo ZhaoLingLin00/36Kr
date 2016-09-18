@@ -2,19 +2,16 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--背景色-->
-    <solid android:color="#ffa500"/>
+    <solid android:color="#ffa500" />
     <!--边框-->
     <stroke
         android:width="0.5dp"
-        android:color="#ffa500"
-        />
+        android:color="#ffa500" />
     <!--圆角-->
-    <corners
-        android:radius="5dp"/>
+    <corners android:radius="5dp" />
     <padding
-        android:top="5dp"
-        android:right="30dp"
-        android:left="30dp"
         android:bottom="5dp"
-        />
+        android:left="30dp"
+        android:right="30dp"
+        android:top="5dp" />
 </shape>

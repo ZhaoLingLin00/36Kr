@@ -59,7 +59,7 @@ public class MainActivity extends AbsBaseActivity {
         });
         mainTabLayout.setupWithViewPager(mainViewPager);
         // 设置文字选中和非选中的颜色
-        mainTabLayout.setTabTextColors(Color.BLACK,Color.argb(255,72,118,255));
+        mainTabLayout.setTabTextColors(Color.BLACK, Color.argb(255, 72, 118, 255));
         // 设置TabLayout的标题和图片
         mainTabLayout.getTabAt(0).setText("新闻").setIcon(R.drawable.selector_news);
         mainTabLayout.getTabAt(1).setText("股权投资").setIcon(R.drawable.selector_equity);

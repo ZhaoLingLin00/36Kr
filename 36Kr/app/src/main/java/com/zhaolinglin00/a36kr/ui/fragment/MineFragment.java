@@ -16,7 +16,6 @@ import com.zhaolinglin00.a36kr.ui.activity.LogInActivity;
  */
 public class MineFragment extends AbsBaseFragment {
 
-    private Context context;
     private TextView mineLoginTv;
 
     public static MineFragment newInstance() {
@@ -26,12 +25,6 @@ public class MineFragment extends AbsBaseFragment {
         MineFragment fragment = new MineFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
     }
 
     @Override
@@ -52,9 +45,7 @@ public class MineFragment extends AbsBaseFragment {
             public void onClick(View v) {
                 // 点击跳转
                 goTo(LogInActivity.class);
-
             }
         });
-
     }
 }

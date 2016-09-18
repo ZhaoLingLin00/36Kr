@@ -30,13 +30,16 @@ public abstract class AbsBaseActivity extends AppCompatActivity {
 
     /**
      * 设置布局文件
+     *
      * @return R.layout.XXX
      */
     protected abstract int setLayout();
+
     /**
      * 初始化组件
      */
-    protected  abstract void initViews();
+    protected abstract void initViews();
+
     /**
      * 初始化数据
      */
@@ -45,22 +48,22 @@ public abstract class AbsBaseActivity extends AppCompatActivity {
     /**
      * 简化findViewById
      */
-    protected <T extends View> T byView (int resId){
+    protected <T extends View> T byView(int resId) {
         return (T) findViewById(resId);
     }
 
     /**
      * 跳转不传值
      */
-    protected void goTo(Context from , Class to){
-        startActivity(new Intent(from,to));
+    protected void goTo(Context from, Class to) {
+        startActivity(new Intent(from, to));
     }
 
     /**
      * 跳转传值
      */
-    protected void goTo(Context from , Class to, Bundle extras){
-        Intent intent = new Intent(from,to);
+    protected void goTo(Context from, Class to, Bundle extras) {
+        Intent intent = new Intent(from, to);
         intent.putExtras(extras);
         startActivity(intent);
     }

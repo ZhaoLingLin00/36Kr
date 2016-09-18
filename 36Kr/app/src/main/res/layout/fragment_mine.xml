@@ -61,15 +61,18 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="#fff">
+
                 <ImageView
                     android:id="@+id/mine_order_img"
                     android:layout_width="wrap_content"
@@ -78,6 +81,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/mine_icon_order1" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -85,6 +89,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@id/mine_order_img"
                     android:text="我的订单" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,11 +99,13 @@
                     android:layout_marginRight="20dp"
                     android:src="@mipmap/common_arrow" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="#fff">
+
                 <ImageView
                     android:id="@+id/mine_account_img"
                     android:layout_width="wrap_content"
@@ -107,6 +114,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/mine_icon_account" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,6 +122,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@id/mine_account_img"
                     android:text="账号信息" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -122,11 +131,13 @@
                     android:layout_marginRight="20dp"
                     android:src="@mipmap/common_arrow" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:background="#fff">
+
                 <ImageView
                     android:id="@+id/mine_authentication_img"
                     android:layout_width="wrap_content"
@@ -135,6 +146,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/mine_icon_authentication" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -142,6 +154,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@id/mine_authentication_img"
                     android:text="跟投人认证" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -151,11 +164,13 @@
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/common_arrow" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="#fff">
+
                 <ImageView
                     android:id="@+id/mine_favorite_img"
                     android:layout_width="wrap_content"
@@ -164,6 +179,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/mine_icon_favorite" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -171,6 +187,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@id/mine_favorite_img"
                     android:text="我收藏的文章" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -179,11 +196,13 @@
                     android:layout_marginRight="20dp"
                     android:src="@mipmap/common_arrow" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:background="#fff">
+
                 <ImageView
                     android:id="@+id/mine_company_img"
                     android:layout_width="wrap_content"
@@ -192,6 +211,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/mine_img_company" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -199,6 +219,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@id/mine_company_img"
                     android:text="我投资的公司" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -207,11 +228,13 @@
                     android:layout_marginRight="20dp"
                     android:src="@mipmap/common_arrow" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:background="#fff">
+
                 <ImageView
                     android:id="@+id/mine_coupon_img"
                     android:layout_width="wrap_content"
@@ -220,6 +243,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/mine_icon_coupon" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -227,6 +251,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@id/mine_coupon_img"
                     android:text="我的投资券" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -235,11 +260,13 @@
                     android:layout_marginRight="20dp"
                     android:src="@mipmap/common_arrow" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:background="#fff">
+
                 <ImageView
                     android:id="@+id/mine_understand_img"
                     android:layout_width="wrap_content"
@@ -248,6 +275,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/mine_icon_understand" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -255,6 +283,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@id/mine_understand_img"
                     android:text="了解股权投资" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -263,12 +292,14 @@
                     android:layout_marginRight="20dp"
                     android:src="@mipmap/common_arrow" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:background="#fff">
+
                 <ImageView
                     android:id="@+id/mine_hotline_img"
                     android:layout_width="wrap_content"
@@ -277,6 +308,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/mine_icon_hotline" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -284,6 +316,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@id/mine_hotline_img"
                     android:text="客服热线" />
+
                 <ImageView
                     android:id="@+id/mine_img8"
                     android:layout_width="wrap_content"
@@ -292,6 +325,7 @@
                     android:layout_alignTop="@id/mine_hotline_img"
                     android:layout_marginRight="20dp"
                     android:src="@mipmap/common_arrow" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

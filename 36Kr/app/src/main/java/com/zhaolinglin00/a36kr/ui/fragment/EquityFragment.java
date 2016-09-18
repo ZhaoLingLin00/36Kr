@@ -19,13 +19,13 @@ import java.util.List;
  * Created by dllo on 16/9/9.
  * 股权投资fragment
  */
-public class EquityFragment extends AbsBaseFragment{
-
-
+public class EquityFragment extends AbsBaseFragment {
 
     private TabLayout equityTabLayout;
     private ViewPager equityViewPager;
     private List<Fragment> equityFragments;
+
+    private EquityAllAdapter equityAllAdapter;
 
     public static EquityFragment newInstance() {
 
@@ -35,6 +35,7 @@ public class EquityFragment extends AbsBaseFragment{
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_equity;
@@ -42,22 +43,20 @@ public class EquityFragment extends AbsBaseFragment{
 
     @Override
     protected void initViews() {
-        equityTabLayout= byView(R.id.equity_tab_layout);
+        equityTabLayout = byView(R.id.equity_tab_layout);
         equityViewPager = byView(R.id.equity_viewpager);
         equityFragments = new ArrayList<>();
-
-
-
     }
 
     @Override
     protected void initDatas() {
 
+        equityAllAdapter = new EquityAllAdapter(context);
 
-        equityFragments.add(EquityRecycleUseFragment.newInstance());
-        equityFragments.add(EquityRecycleUseFragment.newInstance());
-        equityFragments.add(EquityRecycleUseFragment.newInstance());
-        equityFragments.add(EquityRecycleUseFragment.newInstance());
+        equityFragments.add(EquityRecycleUseFragment.newInstance("type=all&pageSize=20"));
+        equityFragments.add(EquityRecycleUseFragment.newInstance("type=underway&pagesize=20"));
+        equityFragments.add(EquityRecycleUseFragment.newInstance("type=raise&pagesize=20"));
+        equityFragments.add(EquityRecycleUseFragment.newInstance("type=finish&pagesize=20"));
 
         equityViewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
@@ -70,15 +69,12 @@ public class EquityFragment extends AbsBaseFragment{
                 return equityFragments.size();
             }
         });
+
         equityTabLayout.setupWithViewPager(equityViewPager);
-        equityTabLayout.setTabTextColors(Color.BLACK,Color.argb(255,72,118,255));
+        equityTabLayout.setTabTextColors(Color.BLACK, Color.argb(255, 72, 118, 255));
         equityTabLayout.getTabAt(0).setText("全部");
         equityTabLayout.getTabAt(1).setText("募资中");
         equityTabLayout.getTabAt(2).setText("募资完成");
         equityTabLayout.getTabAt(3).setText("融资成功");
-
-
-
-
     }
 }

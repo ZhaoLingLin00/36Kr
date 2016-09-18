@@ -7,9 +7,9 @@ package com.zhaolinglin00.a36kr.utils;
 public final class LogUtils {
     // final修饰  不能继承
     // 私有构造方法: 不能创建对象
-    private LogUtils(){}
+    private LogUtils() {
+    }
 
-    private static  boolean isDebug = true;
-
+    private static boolean isDebug = true;
 
 }

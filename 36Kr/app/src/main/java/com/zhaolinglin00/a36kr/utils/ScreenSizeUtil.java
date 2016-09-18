@@ -6,13 +6,13 @@ import android.view.WindowManager;
 
 /**
  * Created by dllo on 16/9/13.
- *
+ * <p>
  * 获取屏幕宽高的工具类
  */
 public class ScreenSizeUtil {
 
     // context建议使用App的Context
-    public static  int getScreenWidth(Context context){
+    public static int getScreenWidth(Context context) {
         // 获取窗口管理者
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         // 创建显示尺寸类
@@ -23,8 +23,7 @@ public class ScreenSizeUtil {
         return metrics.widthPixels;
     }
 
-
-    public static  int getScreenheight(Context context) {
+    public static int getScreenheight(Context context) {
         // 获取窗口管理者
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         // 创建显示尺寸类
@@ -38,13 +37,12 @@ public class ScreenSizeUtil {
     // 简单整合获取屏幕宽高
 
     /**
-     *
-     * @param state  状态
-     * @return  传 1 返回宽
-     *          传 2 返回高
-     *          默认 返回高
+     * @param state 状态
+     * @return 传 1 返回宽
+     * 传 2 返回高
+     * 默认 返回高
      */
-    public static  int getScreenSize(Context context, int state) {
+    public static int getScreenSize(Context context, int state) {
         // 获取窗口管理者
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         // 创建显示尺寸类
@@ -68,10 +66,11 @@ public class ScreenSizeUtil {
     // 如: 播放,暂停,停止
     // 如: 宽 高
     // 关键字: enum  也就是一种数据类型, 就是一个类
-    public enum  ScreenState{
-        WIDTH,HEIGHT
+    public enum ScreenState {
+        WIDTH, HEIGHT
     }
-    public static  int getScreenSize(Context context, ScreenState state) {
+
+    public static int getScreenSize(Context context, ScreenState state) {
         // 获取窗口管理者
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         // 创建显示尺寸类
@@ -79,9 +78,9 @@ public class ScreenSizeUtil {
         // 将窗口(屏幕)的尺寸设置给  显示尺寸类
         manager.getDefaultDisplay().getMetrics(metrics);
 
-        if (state.equals(ScreenState.WIDTH)){
-            return  metrics.widthPixels;
-        }else if (state.equals(ScreenState.HEIGHT)){
+        if (state.equals(ScreenState.WIDTH)) {
+            return metrics.widthPixels;
+        } else if (state.equals(ScreenState.HEIGHT)) {
             return metrics.heightPixels;
         }
         return metrics.heightPixels;

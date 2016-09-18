@@ -2,7 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--股权投资标签选择器-->
-    <item android:drawable="@mipmap/tabbar_icon_equity_highlight"
-        android:state_selected="true"/>
-    <item android:drawable="@mipmap/tabbar_icon_equity"/>
+    <item android:drawable="@mipmap/tabbar_icon_equity_highlight" android:state_selected="true" />
+    <item android:drawable="@mipmap/tabbar_icon_equity" />
 </selector>

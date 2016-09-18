@@ -18,6 +18,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.zhaolinglin00.a36kr.R;
 import com.zhaolinglin00.a36kr.model.bean.NewsBean;
+import com.zhaolinglin00.a36kr.model.net.Constants;
 import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
 import com.zhaolinglin00.a36kr.model.net.VolleyResult;
 import com.zhaolinglin00.a36kr.ui.adapter.NewsAdapter;
@@ -31,18 +32,19 @@ import java.util.List;
  */
 public class NewsFragment extends AbsBaseFragment implements View.OnClickListener {
 
-    private ImageView newsMenuImg,newsDrawerBackImg;
+    private ImageView newsMenuImg, newsDrawerBackImg;
     private DrawerLayout newsDrawerLayout;
     private LinearLayout newsDrawerLL;
 
     private ListView newsListView;
-    private String url = "https://rong.36kr.com/api/mobi/news?pageSize=20&columnId=all&pagingAction=up";
     private NewsAdapter newsAdapter;
 
+    private Constants constants;
+
     public static NewsFragment newInstance() {
-        
+
         Bundle args = new Bundle();
-        
+
         NewsFragment fragment = new NewsFragment();
         fragment.setArguments(args);
         return fragment;
@@ -67,19 +69,17 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         newsMenuImg.setOnClickListener(this);
         newsDrawerBackImg.setOnClickListener(this);
         // 加载头布局  (轮播图)
-        View handView = LayoutInflater.from(context).inflate(R.layout.news_listview_handview,null);
+        View handView = LayoutInflater.from(context).inflate(R.layout.news_listview_handview, null);
         newsListView.addHeaderView(handView);
-
 
         newsAdapter = new NewsAdapter(context);
         newsListView.setAdapter(newsAdapter);
 
-
-        VolleyInstance.getVolleyInatance().startRequest(url, new VolleyResult() {
+        VolleyInstance.getVolleyInatance().startRequest(constants.NEWS_ALL_URL, new VolleyResult() {
             @Override
             public void success(String resultString) {
                 Gson gson = new Gson();
-                NewsBean newsBean = gson.fromJson(resultString,NewsBean.class);
+                NewsBean newsBean = gson.fromJson(resultString, NewsBean.class);
                 Log.d("NewsFragment", "newsBean.getData().getData().size():" + newsBean.getData().getData().size());
                 List<NewsBean.DataBean.DataBean1> datas = newsBean.getData().getData();
                 Log.d("xxx", "datas:" + datas);
@@ -96,13 +96,12 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     // 点击出抽屉效果
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.news_menu:
                 newsDrawerLayout.openDrawer(newsDrawerLL);
                 break;
             case R.id.news_drawer_back_img:
                 break;
         }
-
     }
 }
