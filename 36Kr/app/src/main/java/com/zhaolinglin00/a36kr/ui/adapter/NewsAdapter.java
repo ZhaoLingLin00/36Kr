@@ -2,6 +2,7 @@ package com.zhaolinglin00.a36kr.ui.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,7 @@ public class NewsAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         NewsViewHolder newsViewHolder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_news_listview, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_news_recycler_use_listview, parent, false);
 //            // 获取行布局的高度并重新设置
 //            int height = ScreenSizeUtil.getScreenheight(context);
 //            ViewGroup.LayoutParams params = convertView.getLayoutParams();
@@ -73,12 +74,40 @@ public class NewsAdapter extends BaseAdapter {
         if (dataBean1 != null) {
             newsViewHolder.newsTitleTv.setText(dataBean1.getTitle());
             String columnId = dataBean1.getColumnId();
-//            String columnName = dataBean1.getColumnName();
-            newsViewHolder.newsColumnTv.setText(dataBean1.getColumnName());
+            // 纯数字组成的字符串-转成int
+            int columnIdInt = Integer.parseInt(columnId);
+            Log.d("NewsAdapter", "columnIdInt:" + columnIdInt);
+
+            String columnName = dataBean1.getColumnName();
+            Log.d("NewsAdapter", columnName+"");
+//            newsViewHolder.newsColumnTv.setText(dataBean1.getColumnName());
             newsViewHolder.newsAuthorTv.setText(dataBean1.getUser().getName());
 
-            if (columnId == "67"){
+            newsViewHolder.newsColumnTv.setText(columnName);
+
+            // 根据columnId设置字体颜色
+//            if (columnIdInt == 107){
+//
+//            }
+
+            // 根据columnName设置字体颜色
+            if (columnName.equals("早期项目")){
+                newsViewHolder.newsColumnTv.setTextColor(Color.GREEN);
+            }
+            if (columnName.equals("大公司")){
+                newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
+            }
+            if (columnName.equals("深度")){
                 newsViewHolder.newsColumnTv.setTextColor(Color.RED);
+            }
+            if (columnName.equals("氪友")){
+                newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
+            }
+            if (columnName.equals("8点1氪")){
+                newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
+            }
+            if (columnName.equals("酷公司")){
+                newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
             }
 
 

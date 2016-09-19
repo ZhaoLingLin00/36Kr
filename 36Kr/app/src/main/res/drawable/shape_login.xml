@@ -4,7 +4,7 @@
     <!--边框-->
     <stroke
         android:width="0.5dp"
-        android:color="#dcdcdc" />
+        android:color="#9d9d9d" />
     <!--圆角-->
     <corners android:radius="10dp" />
     <!--内容距边框的距离-->

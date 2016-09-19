@@ -10,4 +10,7 @@
     <!--布局填充色-->
     <color name="colorMainLoginText">#fff</color>
 
+
+    <color name="descript_color">#92969595</color>
+
 </resources>

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="5">
 
@@ -30,6 +31,8 @@
         android:id="@+id/login_tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabIndicatorHeight="1dp"
+        app:tabIndicatorColor="#fff"
         android:background="@color/colorTheme" />
 
     <View
