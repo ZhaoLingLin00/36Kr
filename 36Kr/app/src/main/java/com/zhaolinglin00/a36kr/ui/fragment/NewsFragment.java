@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.zhaolinglin00.a36kr.R;
 
@@ -19,13 +20,7 @@ import com.zhaolinglin00.a36kr.R;
  */
 public class NewsFragment extends AbsBaseFragment  {
 
-    private ImageView newsMenuImg, newsDrawerBackImg;
-    private DrawerLayout newsDrawerLayout;
-    private LinearLayout newsDrawerLL;
 
-    private ListView newsListView;
-
-    private NewsFragment newsFragment;
 
     public static NewsFragment newInstance() {
 
@@ -48,28 +43,15 @@ public class NewsFragment extends AbsBaseFragment  {
 
     @Override
     protected void initDatas() {
-//        // 加载头布局  (轮播图)
-//        View handView = LayoutInflater.from(context).inflate(R.layout.news_listview_handview, null);
-//        newsListView.addHeaderView(handView);
-
-
-        getChildFragmentManager().beginTransaction().replace(R.id.news_framelayout,NewsRecyclerUseFragment.newInstance("url")).commit();
+        getChildFragmentManager().beginTransaction().replace(R.id.news_framelayout
+                ,NewsRecyclerUseFragment.newInstance("https://rong.36kr.com/api/mobi/news?pagesize=20&columnid=all&pagingaction=up")).commit();
 
 
     }
 
-//    // 点击出抽屉效果
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.news_menu:
-//                newsDrawerLayout.openDrawer(newsDrawerLL);
-//                break;
-//
-//        }
-//    }
     public void changeFragment(Fragment fragment){
         getChildFragmentManager().beginTransaction().replace(R.id.news_framelayout,fragment).commit();
 
     }
+
 }

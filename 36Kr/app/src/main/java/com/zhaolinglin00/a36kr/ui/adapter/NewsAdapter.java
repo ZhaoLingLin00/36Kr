@@ -94,21 +94,24 @@ public class NewsAdapter extends BaseAdapter {
             if (columnName.equals("早期项目")){
                 newsViewHolder.newsColumnTv.setTextColor(Color.GREEN);
             }
-            if (columnName.equals("大公司")){
+            else  if (columnName.equals("大公司")){
                 newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
             }
-            if (columnName.equals("深度")){
+            else if (columnName.equals("深度")){
                 newsViewHolder.newsColumnTv.setTextColor(Color.RED);
             }
-            if (columnName.equals("氪友")){
+            else if (columnName.equals("氪友")){
                 newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
             }
-            if (columnName.equals("8点1氪")){
+            else if (columnName.equals("8点1氪")){
                 newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
             }
-            if (columnName.equals("酷公司")){
+            else if (columnName.equals("酷公司")){
+                newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
+            }else {
                 newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
             }
+
 
 
 

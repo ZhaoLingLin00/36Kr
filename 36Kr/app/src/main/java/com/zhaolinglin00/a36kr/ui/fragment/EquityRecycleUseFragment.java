@@ -8,6 +8,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.stx.xhb.xbanner.XBanner;
 import com.zhaolinglin00.a36kr.R;
 import com.zhaolinglin00.a36kr.model.bean.EquityAllBean;
 import com.zhaolinglin00.a36kr.model.net.Constants;
@@ -26,7 +27,11 @@ public class EquityRecycleUseFragment extends AbsBaseFragment {
     private EquityAllAdapter equityAllAdapter;
     private ListView equityAllListView;
 
+
+
     public  String url = "https://rong.36kr.com/api/mobi/cf/actions/list?page=1&";
+
+    public  String lunBoUrl = "https://rong.36kr.com/api/mobi/roundpics/v4";
 
     public static EquityRecycleUseFragment newInstance(String url1) {
 
@@ -50,6 +55,8 @@ public class EquityRecycleUseFragment extends AbsBaseFragment {
     @Override
     protected void initDatas() {
         equityAll();
+
+
     }
 
     /**
