@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <com.stx.xhb.xbanner.XBanner
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/news_hander_banner"
+    <com.zhaolinglin00.a36kr.view.loopview.LoopView
+        android:id="@+id/news_loopview"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:pointsPosition="CENTER"
-        app:AutoPlayTime="3000"
-
-        />
+        android:layout_height="180dp"
+        app:bottom_style="@integer/loop_no_descript_center"
+        app:rate="3"/>
 </LinearLayout>

@@ -74,15 +74,14 @@ public class NewsAdapter extends BaseAdapter {
         if (dataBean1 != null) {
             newsViewHolder.newsTitleTv.setText(dataBean1.getTitle());
             String columnId = dataBean1.getColumnId();
-            // 纯数字组成的字符串-转成int
-            int columnIdInt = Integer.parseInt(columnId);
-            Log.d("NewsAdapter", "columnIdInt:" + columnIdInt);
+//            // 纯数字组成的字符串-转成int
+//            int columnIdInt = Integer.parseInt(columnId);
+//            Log.d("NewsAdapter", "columnIdInt:" + columnIdInt);
 
             String columnName = dataBean1.getColumnName();
             Log.d("NewsAdapter", columnName+"");
 //            newsViewHolder.newsColumnTv.setText(dataBean1.getColumnName());
             newsViewHolder.newsAuthorTv.setText(dataBean1.getUser().getName());
-
             newsViewHolder.newsColumnTv.setText(columnName);
 
             // 根据columnId设置字体颜色
@@ -111,11 +110,6 @@ public class NewsAdapter extends BaseAdapter {
             }else {
                 newsViewHolder.newsColumnTv.setTextColor(Color.BLUE);
             }
-
-
-
-
-
 
             // 转换时间格式
             long stringT = dataBean1.getPublishTime();

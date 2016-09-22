@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.ListView;
 
 import com.zhaolinglin00.a36kr.R;
+import com.zhaolinglin00.a36kr.model.net.Constants;
 import com.zhaolinglin00.a36kr.ui.adapter.EquityAllAdapter;
 
 import java.util.ArrayList;
@@ -51,12 +52,13 @@ public class EquityFragment extends AbsBaseFragment {
     @Override
     protected void initDatas() {
 
-        equityAllAdapter = new EquityAllAdapter(context);
+//        equityAllAdapter = new EquityAllAdapter();
 
-        equityFragments.add(EquityRecycleUseFragment.newInstance("type=all&pageSize=20"));
-        equityFragments.add(EquityRecycleUseFragment.newInstance("type=underway&pagesize=20"));
-        equityFragments.add(EquityRecycleUseFragment.newInstance("type=raise&pagesize=20"));
-        equityFragments.add(EquityRecycleUseFragment.newInstance("type=finish&pagesize=20"));
+
+        equityFragments.add(EquityRecycleUseFragment.newInstance(Constants.EQUITY_ALL_URL));
+        equityFragments.add(EquityRecycleUseFragment.newInstance(Constants.EQUITY_UNDERWAY_URL));
+        equityFragments.add(EquityRecycleUseFragment.newInstance(Constants.EQUITY_RAISE_URL));
+        equityFragments.add(EquityRecycleUseFragment.newInstance(Constants.EQUITY_FINISH_URL));
 
         equityViewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
@@ -72,6 +74,9 @@ public class EquityFragment extends AbsBaseFragment {
 
         equityTabLayout.setupWithViewPager(equityViewPager);
         equityTabLayout.setTabTextColors(Color.BLACK, Color.argb(255, 72, 118, 255));
+        /**
+         * 添加TabLayout标题
+         */
         equityTabLayout.getTabAt(0).setText("全部");
         equityTabLayout.getTabAt(1).setText("募资中");
         equityTabLayout.getTabAt(2).setText("募资完成");

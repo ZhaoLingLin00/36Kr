@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <com.zhaolinglin00.a36kr.view.loopview.LoopView
+            android:id="@+id/discovery_loopview"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:bottom_style="@integer/loop_no_descript_center"
+            app:rate="3"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.stx.xhb.xbanner.XBanner
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/news_hander_banner"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                app:pointsPosition="CENTER"
-                app:AutoPlayTime="3000"
-
-                />
-
-
+            
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="100dp"
                 android:background="#ffffff"
                 android:orientation="horizontal"
                 android:weightSum="3">
@@ -219,7 +217,7 @@
                             android:id="@+id/discovery_project_logo_img"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
+                            android:layout_marginTop="10dp"
                             android:src="@mipmap/ic_launcher" />
 
                         <TextView
@@ -227,7 +225,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="20dp"
+                            android:layout_alignTop="@id/discovery_project_logo_img"
                             android:layout_toRightOf="@id/discovery_project_logo_img"
                             android:text="项目名字"
                             android:textSize="20sp" />
@@ -238,7 +236,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/discovery_project_name_tv"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_alignTop="@id/discovery_project_logo_img"
                             android:layout_toRightOf="@id/discovery_project_logo_img"
                             android:text="项目介绍" />
 
