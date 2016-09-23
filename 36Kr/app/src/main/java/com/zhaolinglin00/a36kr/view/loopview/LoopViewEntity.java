@@ -2,6 +2,7 @@ package com.zhaolinglin00.a36kr.view.loopview;
 
 /**
  * Created by dllo on 16/9/21.
+ * 轮播图的实体类
  */
 public class LoopViewEntity {
     private String imageUrl;

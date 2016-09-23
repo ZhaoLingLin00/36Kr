@@ -21,6 +21,12 @@
         </activity>
         <!--登录Activity注册-->
         <activity android:name=".ui.activity.LogInActivity"/>
+        <!--搜索Activity注册-->
+        <activity android:name=".ui.activity.SearchActivity"/>
+        <!--近期活动Activity注册-->
+        <activity android:name=".ui.activity.RecentActivity"/>
+        <!--设置ctivity注册-->
+        <activity android:name=".ui.activity.SettingActivity"/>
     </application>
 
 </manifest>

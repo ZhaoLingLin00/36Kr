@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/equity_linear_layout"
     android:weightSum="10">
 
     <RelativeLayout
@@ -34,8 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@id/equity_title_search"
+            android:layout_marginRight="60dp"
+            android:layout_alignParentRight="true"
             android:src="@mipmap/nav_icon_activity" />
 
     </RelativeLayout>
@@ -62,6 +63,7 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/equity_viewpager"
         android:layout_width="match_parent"
+        android:paddingTop="10dp"
         android:layout_height="0dp"
         android:layout_weight="8.2">
 

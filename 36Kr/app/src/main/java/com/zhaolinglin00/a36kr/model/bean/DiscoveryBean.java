@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/18.
+ * 发现页面的实体类
  */
 public class DiscoveryBean {
 

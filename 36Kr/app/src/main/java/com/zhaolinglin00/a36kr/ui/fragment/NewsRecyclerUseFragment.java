@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -26,21 +27,23 @@ import java.util.List;
  * Created by dllo on 16/9/19.
  * News复用的Fragment
  */
-public class NewsRecyclerUseFragment extends AbsBaseFragment  {
+public class NewsRecyclerUseFragment extends AbsBaseFragment {
 
 
     private NewsAdapter newsAdapter;
 
     private ListView newsListView;
 
+    private NewsBean newsBean;
     private LoopView newsLoopView;
-    private List<LoopViewEntity> entities=new ArrayList<>();
+    private List<LoopViewEntity> entities = new ArrayList<>();
+    private boolean ifHaveHead;// 判断是否加载轮播图
 
-
-    public static NewsRecyclerUseFragment newInstance(String url) {
+    public static NewsRecyclerUseFragment newInstance(String url, boolean ifHaveHead) {
 
         Bundle args = new Bundle();
         args.putString("url", url);
+        args.putBoolean("if", ifHaveHead);
         NewsRecyclerUseFragment fragment = new NewsRecyclerUseFragment();
         fragment.setArguments(args);
         return fragment;
@@ -56,41 +59,50 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment  {
 
         newsListView = byView(R.id.news_recycle_use_listview);
         newsAdapter = new NewsAdapter(context);
-
     }
 
     @Override
     protected void initDatas() {
-
+        /**
+         * Fragment单例中传网址,判断是否有轮播图
+         */
+        Bundle bundle = getArguments();
+        String string = bundle.getString("url");
+        ifHaveHead = bundle.getBoolean("if");
 
         /**
          * 加载头布局(轮播图)
          */
+        View handerView = LayoutInflater.from(context).inflate(R.layout.news_listview_handview, null);
+        newsLoopView = (LoopView) handerView.findViewById(R.id.news_loopview);
+        if (ifHaveHead == true) {
+            newsListView.addHeaderView(handerView);
+        }
+        Log.d("zzz", "---执行--");
 
+        /**
+         * 解析轮播图网络数据
+         */
         VolleyInstance.getVolleyInatance().startRequest(Constants.CAROUSEL_URL, new VolleyResult() {
             @Override
             public void success(String resultString) {
-                View handerView = LayoutInflater.from(context).inflate(R.layout.news_listview_handview,null);
-                newsLoopView= (LoopView) handerView.findViewById(R.id.news_loopview);
                 Log.d("xxxxx", resultString);
                 Gson gson = new Gson();
                 CarouselBean carouselBean = gson.fromJson(resultString, CarouselBean.class);
-                List<CarouselBean.DataBean.PicsBean> picsBeen=carouselBean.getData().getPics();
+                List<CarouselBean.DataBean.PicsBean> picsBeen = carouselBean.getData().getPics();
                 Log.d("NewsRecyclerUseFragment", picsBeen.get(0).getImgUrl());
-                LoopViewEntity entity=new LoopViewEntity();
+                LoopViewEntity entity = new LoopViewEntity();
 //                entity.setImageUrl(picsBeen.get(0).getImgUrl());
-                Log.d("xxx", entity.getImageUrl()+"1111");
+                Log.d("xxx", entity.getImageUrl() + "1111");
 //                entities.add(entity);
                 Log.d("xxxxxx", "entities.size():" + entities.size());
 //                entities.add(entity);
-                for (int i = 0; i <picsBeen.size() ; i++) {
-                    LoopViewEntity e=new LoopViewEntity();
+                for (int i = 0; i < picsBeen.size(); i++) {
+                    LoopViewEntity e = new LoopViewEntity();
                     e.setImageUrl(picsBeen.get(i).getImgUrl());
                     entities.add(e);
                 }
                 newsLoopView.setLoopData(entities);
-                newsListView.addHeaderView(handerView);
-                newsListView.setAdapter(newsAdapter);
 
                 newsLoopView.setOnItemClickListener(new LoopView.OnItemClickListener() {
                     @Override
@@ -98,26 +110,19 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment  {
                         Toast.makeText(context, "点击了" + position, Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
             }
+
             @Override
             public void failure() {
                 Log.d("xxxxxx", "获取失败");
             }
         });
-        Log.d("xxxxx", "entities.size():" + entities.size());
 
 
         /**
-         * Fragment单例中传网址
+         * 解析ListView网络数据
          */
-        Bundle bundle = getArguments();
-        String string = bundle.getString("url");
-
         VolleyInstance.getVolleyInatance().startRequest(string, new VolleyResult() {
-
-            private NewsBean newsBean;
 
             @Override
             public void success(String resultString) {
@@ -135,6 +140,7 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment  {
 
             }
         });
+        newsListView.setAdapter(newsAdapter);
     }
 }
 

@@ -15,6 +15,7 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <!--looopView的参数-->
     <declare-styleable name="LoopView">
         <attr name="rate" format="integer"></attr>
         <attr name="bottom_style" format="integer|reference"></attr>
@@ -23,5 +24,26 @@
     <integer name="loop_have_descript">1</integer>
     <integer name="loop_no_descript_right">2</integer>
     <integer name="loop_no_descript_center">3</integer>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+
+        <item
+            name="android:windowFrame">@null</item><!--边框-->
+
+        <item
+            name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+
+        <!--<item name="android:windowIsTranslucent">false</item>&lt;!&ndash;半透明&ndash;&gt;-->
+
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:background">@android:color/white</item>
+
+        <item name="android:windowBackground">@null</item>
+
+        <item
+            name="android:backgroundDimEnabled">true</item><!--模糊-->
+
+    </style>
 
 </resources>

@@ -17,8 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/item_equity_logo_img"
         android:layout_toRightOf="@id/item_equity_logo_img"
-        android:textSize="18sp"
-        android:text="公司名字" />
+        android:text="公司名字"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/item_equity_company_brief_tv"
@@ -26,9 +26,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/item_equity_logo_img"
         android:layout_toRightOf="@id/item_equity_logo_img"
+        android:ellipsize="end"
         android:maxEms="12"
         android:maxLines="1"
-        android:ellipsize="end"
         android:text="公司摘要" />
 
     <TextView
@@ -115,25 +115,95 @@
         android:layout_margin="15dp"
         android:background="#dcdcdc" />
 
-    <TextView
-
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/item_equity_view"
-        android:layout_marginLeft="15dp"
-        android:text="募资中"
-        android:textSize="16sp" />
+        android:orientation="horizontal"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/item_equity_view"
-        android:layout_marginBottom="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/shape_equity_subscribe"
-        android:text="认购"
-        android:textColor="#fff"
-        android:textSize="18sp" />
+        android:weightSum="4">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="3">
+
+            <TextView
+                android:id="@+id/item_equity_muzi_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="募资中"
+                android:textColor="@color/colorTheme"
+                android:textSize="16sp" />
+
+            <ProgressBar
+                android:id="@+id/equity_progressbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_alignLeft="@id/item_equity_muzi_tv"
+                android:layout_below="@id/item_equity_muzi_tv"
+                android:progressBackgroundTint="#9d9d9d"
+                android:progressDrawable="@drawable/shape_progressbar"/>
+            <!--android:progressTint="@color/colorTheme"-->
+
+            <TextView
+                android:id="@+id/equity_rate_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已募资"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"/>
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/equity_subscribe_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/shape_equity_subscribe"
+                android:gravity="center_horizontal"
+                android:text="认购"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--<TextView-->
+    <!--android:id="@+id/muzi"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/item_equity_view"-->
+    <!--android:layout_marginLeft="15dp"-->
+    <!--android:text="募资中"-->
+    <!--android:textSize="16sp" />-->
+
+    <!--<SeekBar-->
+    <!--android:layout_width=""-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/muzi"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_below="@id/item_equity_view"-->
+    <!--android:layout_marginBottom="15dp"-->
+    <!--android:layout_marginRight="15dp"-->
+    <!--android:background="@drawable/shape_equity_subscribe"-->
+    <!--android:text="认购"-->
+    <!--android:textColor="#fff"-->
+    <!--android:textSize="18sp" />-->
 
 </RelativeLayout>

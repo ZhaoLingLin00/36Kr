@@ -22,12 +22,17 @@ public class VolleyInstance {
 
     private RequestQueue queue;
 
-    //私有化构造方法,外部不能随意的创建对象
+    /**
+     * 私有化构造方法,外部不能随意的创建对象
+     */
     private VolleyInstance() {
         queue = Volley.newRequestQueue(MyApp.getContext());
     }
 
-    //对外提供获取对象的静态方法
+    /**
+     * 对外提供获取对象的静态方法
+     * @return
+     */
     public static VolleyInstance getVolleyInatance() {
         if (volleyInatance == null) {
             synchronized (VolleyInstance.class) {
@@ -39,7 +44,11 @@ public class VolleyInstance {
         return volleyInatance;
     }
 
-    //对外提供请求方法
+    /**
+     * 对外提供请求方法
+     * @param url
+     * @param result
+     */
     public void startRequest(String url, final VolleyResult result) {
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
             @Override

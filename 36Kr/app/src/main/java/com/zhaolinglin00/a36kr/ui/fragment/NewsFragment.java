@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.zhaolinglin00.a36kr.R;
 import com.zhaolinglin00.a36kr.model.net.Constants;
 import com.zhaolinglin00.a36kr.ui.activity.IToDrawerLayout;
+import com.zhaolinglin00.a36kr.ui.activity.SearchActivity;
 
 
 /**
@@ -24,6 +25,7 @@ import com.zhaolinglin00.a36kr.ui.activity.IToDrawerLayout;
 public class NewsFragment extends AbsBaseFragment implements View.OnClickListener {
     private TextView titleNameTv;
     private ImageView titleMenuImg;
+    private ImageView newsSearchImg;
 
     private IToDrawerLayout iToDrawerLayout;
 
@@ -55,15 +57,17 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     protected void initViews() {
         titleNameTv = byView(R.id.news_title_name);
         titleMenuImg = byView(R.id.news_menu);
+
+        newsSearchImg = byView(R.id.news_search_img);
     }
 
     @Override
     protected void initDatas() {
         getChildFragmentManager().beginTransaction().replace(R.id.news_framelayout
-                ,NewsRecyclerUseFragment.newInstance(Constants.NEWS_ALL_URL)).commit();
-
+                ,NewsRecyclerUseFragment.newInstance(Constants.NEWS_ALL_URL, true)).commit();
 
         titleMenuImg.setOnClickListener(this);
+        newsSearchImg.setOnClickListener(this);
     }
 
     /**
@@ -90,6 +94,15 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
      */
     @Override
     public void onClick(View v) {
-        iToDrawerLayout.onToDrawerLayout(0);
+        switch (v.getId()){
+            case R.id.news_menu:
+                iToDrawerLayout.onToDrawerLayout(0);// 调用接口实现打开抽屉
+                break;
+            case R.id.news_search_img:
+                goTo(SearchActivity.class);// 跳转搜索界面
+                break;
+
+        }
+
     }
 }

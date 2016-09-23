@@ -72,6 +72,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/discovery_recent_rl"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
@@ -168,8 +169,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/discovery_number_tv"
                     android:layout_centerHorizontal="true"
-                    android:layout_margin="10dp"
-                    android:text="接到订单" />
+                    android:layout_margin="20dp"
+                    android:text="接到订单滚动显示" />
 
 
                 <TextView
@@ -236,7 +237,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/discovery_project_name_tv"
                             android:layout_marginLeft="20dp"
-                            android:layout_alignTop="@id/discovery_project_logo_img"
+                            android:layout_marginTop="10dp"
                             android:layout_toRightOf="@id/discovery_project_logo_img"
                             android:text="项目介绍" />
 
@@ -428,7 +429,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:background="#fff"
                 android:orientation="vertical">
@@ -463,7 +463,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:background="#fff"
                 android:orientation="vertical">

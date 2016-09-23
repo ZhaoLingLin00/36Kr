@@ -16,10 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:layout_alignTop="@id/item_news_image_img"
         android:layout_toRightOf="@id/item_news_image_img"
         android:text="内容"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/item_news_author_tv"

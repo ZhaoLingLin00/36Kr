@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/18.
+ * 发现页面适配器
  */
 public class DiscoveryAdapter extends BaseAdapter {
     private Context context;

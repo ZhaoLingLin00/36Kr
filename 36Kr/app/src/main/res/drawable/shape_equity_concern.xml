@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--股权投资界面的关注的shape-->
     <!--边框-->
     <stroke
         android:width="0.5dp"

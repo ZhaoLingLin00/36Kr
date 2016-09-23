@@ -1,7 +1,13 @@
 package com.zhaolinglin00.a36kr.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -10,6 +16,7 @@ import com.zhaolinglin00.a36kr.model.bean.CarouselBean;
 import com.zhaolinglin00.a36kr.model.net.Constants;
 import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
 import com.zhaolinglin00.a36kr.model.net.VolleyResult;
+import com.zhaolinglin00.a36kr.ui.activity.RecentActivity;
 import com.zhaolinglin00.a36kr.view.loopview.LoopView;
 import com.zhaolinglin00.a36kr.view.loopview.LoopViewEntity;
 
@@ -21,10 +28,12 @@ import java.util.List;
  * Created by dllo on 16/9/9.
  * 发现Fragment
  */
-public class DiscoveryFragment extends AbsBaseFragment  {
+public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickListener {
 
 
     private LoopView discoveryLoopView;
+
+    private RelativeLayout discoveryRecentRL;
 
     private List<LoopViewEntity> entities=new ArrayList<>();
 
@@ -46,11 +55,15 @@ public class DiscoveryFragment extends AbsBaseFragment  {
     @Override
     protected void initViews() {
         discoveryLoopView = byView(R.id.discovery_loopview);
+
+        discoveryRecentRL = byView(R.id.discovery_recent_rl);
+
     }
 
     @Override
     protected void initDatas() {
 
+        discoveryRecentRL.setOnClickListener(this);
 
         /**
          *  ScrollView的轮播图
@@ -76,7 +89,6 @@ public class DiscoveryFragment extends AbsBaseFragment  {
                 for (int i = 0; i <picsBeen.size() ; i++) {
                     LoopViewEntity e=new LoopViewEntity();
                     Log.d("DiscoveryFragment", "e:" + e);
-
                     e.setImageUrl(picsBeen.get(i).getImgUrl());
                     Log.d("DiscoveryFragment", "e1:" + e);
                     entities.add(e);
@@ -95,5 +107,19 @@ public class DiscoveryFragment extends AbsBaseFragment  {
                 Log.d("xxxxxx", "获取失败");
             }
         });
+    }
+
+
+    /**
+     * 点击事件
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.discovery_recent_rl:
+                goTo(RecentActivity.class);
+                break;
+        }
     }
 }

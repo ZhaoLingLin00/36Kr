@@ -50,7 +50,7 @@ public class EquityRecycleUseFragment extends AbsBaseFragment {
     }
 
     /**
-     * 股权投资tabLayout的全部界面
+     * 股权投资tabLayout的全部界面解析网络数据  加载数据
      */
     private void equityAll() {
         equityAllAdapter = new EquityAllAdapter(context);
@@ -67,10 +67,8 @@ public class EquityRecycleUseFragment extends AbsBaseFragment {
                 List<EquityAllBean.DataBean.DataBean1> datas = equityAllBean.getData().getData();
                 equityAllAdapter.setDatas(datas);
             }
-
             @Override
             public void failure() {
-
             }
         });
     }
