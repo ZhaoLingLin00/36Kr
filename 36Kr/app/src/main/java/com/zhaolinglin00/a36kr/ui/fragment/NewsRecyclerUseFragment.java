@@ -1,9 +1,11 @@
 package com.zhaolinglin00.a36kr.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ import com.zhaolinglin00.a36kr.model.bean.NewsBean;
 import com.zhaolinglin00.a36kr.model.net.Constants;
 import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
 import com.zhaolinglin00.a36kr.model.net.VolleyResult;
+import com.zhaolinglin00.a36kr.ui.activity.DetailsActivity;
 import com.zhaolinglin00.a36kr.ui.adapter.NewsAdapter;
 import com.zhaolinglin00.a36kr.view.loopview.LoopView;
 import com.zhaolinglin00.a36kr.view.loopview.LoopViewEntity;
@@ -27,17 +30,17 @@ import java.util.List;
  * Created by dllo on 16/9/19.
  * News复用的Fragment
  */
-public class NewsRecyclerUseFragment extends AbsBaseFragment {
-
+public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterView.OnItemClickListener {
 
     private NewsAdapter newsAdapter;
-
     private ListView newsListView;
 
     private NewsBean newsBean;
     private LoopView newsLoopView;
     private List<LoopViewEntity> entities = new ArrayList<>();
     private boolean ifHaveHead;// 判断是否加载轮播图
+
+
 
     public static NewsRecyclerUseFragment newInstance(String url, boolean ifHaveHead) {
 
@@ -69,6 +72,8 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment {
         Bundle bundle = getArguments();
         String string = bundle.getString("url");
         ifHaveHead = bundle.getBoolean("if");
+
+        newsListView.setOnItemClickListener(this);
 
         /**
          * 加载头布局(轮播图)
@@ -141,6 +146,19 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment {
             }
         });
         newsListView.setAdapter(newsAdapter);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//        Intent intent = new Intent(context,DetailsActivity.class);
+//        startActivity(intent);
+        List<NewsBean.DataBean.DataBean1> datas = newsBean.getData().getData();
+        Log.d("ffff", "position:" + position);
+        Bundle bd = new Bundle();
+        String str = datas.get(position-1).getFeedId();
+        Log.d("ffff", str);
+        bd.putString("id",str);
+        goTo(DetailsActivity.class,bd);
     }
 }
 

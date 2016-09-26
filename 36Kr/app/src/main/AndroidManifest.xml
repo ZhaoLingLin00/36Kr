@@ -27,6 +27,10 @@
         <activity android:name=".ui.activity.RecentActivity"/>
         <!--设置ctivity注册-->
         <activity android:name=".ui.activity.SettingActivity"/>
+        <!--寻找投资人Activity注册-->
+        <activity android:name=".ui.activity.SeekActivity"/>
+        <!--新闻详情Activity注册-->
+        <activity android:name=".ui.activity.DetailsActivity"/>
     </application>
 
 </manifest>

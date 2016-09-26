@@ -17,6 +17,7 @@ import com.zhaolinglin00.a36kr.model.net.Constants;
 import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
 import com.zhaolinglin00.a36kr.model.net.VolleyResult;
 import com.zhaolinglin00.a36kr.ui.activity.RecentActivity;
+import com.zhaolinglin00.a36kr.ui.activity.SeekActivity;
 import com.zhaolinglin00.a36kr.view.loopview.LoopView;
 import com.zhaolinglin00.a36kr.view.loopview.LoopViewEntity;
 
@@ -33,7 +34,7 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
 
     private LoopView discoveryLoopView;
 
-    private RelativeLayout discoveryRecentRL;
+    private RelativeLayout discoveryRecentRL,discoverySeekRL;
 
     private List<LoopViewEntity> entities=new ArrayList<>();
 
@@ -58,12 +59,15 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
 
         discoveryRecentRL = byView(R.id.discovery_recent_rl);
 
+        discoverySeekRL = byView(R.id.discovery_seek_rl);
+
     }
 
     @Override
     protected void initDatas() {
 
         discoveryRecentRL.setOnClickListener(this);
+        discoverySeekRL.setOnClickListener(this);
 
         /**
          *  ScrollView的轮播图
@@ -119,6 +123,9 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
         switch (v.getId()){
             case R.id.discovery_recent_rl:
                 goTo(RecentActivity.class);
+                break;
+            case R.id.discovery_seek_rl:
+                goTo(SeekActivity.class);
                 break;
         }
     }

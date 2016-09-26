@@ -59,15 +59,7 @@ public class RecentActivity extends AbsBaseActivity implements View.OnClickListe
 
             }
         });
-
-
     }
-
-
-
-
-
-
 
     /**
      * 点击事件

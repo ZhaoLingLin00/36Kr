@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_seek_photo_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:src="@mipmap/logo"/>
+
+    <TextView
+
+        android:id="@+id/item_seek_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="姓名"
+        android:layout_toRightOf="@id/item_seek_photo_img"
+        android:layout_alignTop="@id/item_seek_photo_img"
+        android:textSize="18sp"
+        />
+    <TextView
+        android:id="@+id/lingyu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关注领域: "
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/item_seek_name_tv"
+        android:layout_alignLeft="@id/item_seek_name_tv"/>
+
+    <TextView
+        android:id="@+id/item_seek_domain_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="内容"
+        android:layout_alignTop="@id/lingyu"
+        android:layout_toRightOf="@id/lingyu"
+        />
+    <TextView
+        android:id="@+id/guanzhu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="投资阶段: "
+        android:layout_alignLeft="@id/item_seek_name_tv"
+        android:layout_below="@id/lingyu"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/item_seek_stage_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="投资阶段"
+        android:textColor="#ffa200"
+        android:layout_alignTop="@id/guanzhu"
+        android:layout_toRightOf="@id/guanzhu"
+        android:layout_marginBottom="20dp"
+
+        />
+
+
+
+</RelativeLayout>

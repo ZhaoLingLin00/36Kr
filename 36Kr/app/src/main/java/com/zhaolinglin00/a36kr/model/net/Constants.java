@@ -66,4 +66,12 @@ public final class Constants {
      * 发现界面  近期活动 网址
      */
     public static  final String RECENT_URL = "https://rong.36kr.com/api/mobi/activity/list?page=1";
+    /**
+     * 发现界面  寻找投资人 网址
+     */
+    public static final String SEEK_URL = "https://rong.36kr.com/api/mobi/investor?page=1&pagesize=20";
+    /**
+     * 新闻详情界面拼接前半段
+     */
+    public static final String DETAILS_URL="https://rong.36kr.com/api/mobi/news/";
 }
