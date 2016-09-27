@@ -222,6 +222,7 @@ public class MainActivity extends AbsBaseActivity implements View.OnClickListene
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+
         Toast.makeText(this, "退出程序", Toast.LENGTH_SHORT).show();
         return super.onKeyDown(keyCode, event);
     }

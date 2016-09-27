@@ -28,6 +28,8 @@ public class EquityAllAdapter extends BaseAdapter {
     private Context context;
     private List<EquityAllBean.DataBean.DataBean1> datas;
 
+    private Boolean concern = false;
+
     public EquityAllAdapter(Context context) {
         this.context = context;
     }
@@ -87,6 +89,21 @@ public class EquityAllAdapter extends BaseAdapter {
                 equityAllViewHolder.equitySubscribeTv.setTextColor(Color.WHITE);
                 equityAllViewHolder.equitySubscribeTv.setText("去看看");
             }
+
+            final EquityAllViewHolder finalEquityAllViewHolder = equityAllViewHolder;
+            equityAllViewHolder.equityConcernTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (concern == false){
+                        finalEquityAllViewHolder.equityConcernTv.setText("已关注");
+                        concern = true;
+                    }else {
+                        finalEquityAllViewHolder.equityConcernTv.setText("关注");
+                        concern = false;
+                    }
+                }
+            });
+
             // 转换投资进度百分比
             double num = dataBean1.getRate() ;
             int number = (int) (num * 100);
@@ -108,7 +125,7 @@ public class EquityAllAdapter extends BaseAdapter {
 
         ImageView equityLogoImg, equityBigImg;
         TextView equityCompanyNameTv, equityCompanyBirefTv, equityLeadNameTv, equityFounderIntroduceTv,
-                equityFounderTv, equityHatcherTv, equityHatcherNameTv, equityMuziTv, equitySubscribeTv, equityRateTv;
+                equityFounderTv, equityHatcherTv, equityHatcherNameTv, equityMuziTv, equitySubscribeTv, equityRateTv,equityConcernTv;
 
         ProgressBar equityProgressBar;
         public EquityAllViewHolder(View view) {
@@ -125,6 +142,7 @@ public class EquityAllAdapter extends BaseAdapter {
             equitySubscribeTv = (TextView) view.findViewById(R.id.equity_subscribe_tv);// 认购or去看看
             equityRateTv = (TextView) view.findViewById(R.id.equity_rate_tv);// 募资完成百分比
             equityProgressBar = (ProgressBar) view.findViewById(R.id.equity_progressbar);// 进度
+            equityConcernTv = (TextView) view.findViewById(R.id.item_equity_concern_tv);
 
 
         }

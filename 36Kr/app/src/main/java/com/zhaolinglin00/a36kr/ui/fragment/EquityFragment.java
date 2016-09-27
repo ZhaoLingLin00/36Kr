@@ -15,6 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.CycleInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -45,6 +48,8 @@ public class EquityFragment extends AbsBaseFragment implements View.OnClickListe
     private AlertDialog alertDialog;
 
     private ImageView equitySearchImg;
+
+    private Boolean dialogShow = false;
 
 
     public static EquityFragment newInstance() {
@@ -116,9 +121,34 @@ public class EquityFragment extends AbsBaseFragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.equity_title_investment:// 点击出Dialog
                 //        carateWindow();
-                Log.d("EquityFragment", "点击了");
-                showDialog();
-                Log.d("EquityFragment", "点击了图片");
+//                Log.d("EquityFragment", "点击了");
+//                showDialog();
+//                Log.d("EquityFragment", "点击了图片");
+                if (dialogShow==false){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.dialog);
+                    View view = LayoutInflater.from(context).inflate(R.layout.equity_popupwindow, null);
+                    builder.setView(view);
+                    alertDialog = builder.create();
+                    alertDialog.show();
+
+                    Window window = alertDialog.getWindow();
+                    WindowManager.LayoutParams params = window.getAttributes();
+                    params.height = ScreenSizeUtil.getScreenSize(context, ScreenSizeUtil.ScreenState.HEIGHT) / 3 * 2;
+                    params.width = ScreenSizeUtil.getScreenSize(context, ScreenSizeUtil.ScreenState.WIDTH) / 5 * 4;
+                    window.setAttributes(params);
+                    dialogShow=true;
+                }else {
+//                    alertDialog.dismiss();
+                    RotateAnimation rotateAnimation = new RotateAnimation(-60, 60,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+                    rotateAnimation.setDuration(1000);
+                    rotateAnimation.setFillAfter(false);
+//                    rotateAnimation.setRepeatCount(2);
+//                    rotateAnimation.setFillBefore(true);
+                    rotateAnimation.setInterpolator(new CycleInterpolator(3));
+//                    rotateAnimation.setRepeatMode(Animation.RESTART);
+                    showPopupImg.startAnimation(rotateAnimation);
+                    dialogShow=false;
+                }
                 break;
             case R.id.equity_title_search:// 点击跳转搜索界面
                 goTo(SearchActivity.class);
@@ -130,18 +160,6 @@ public class EquityFragment extends AbsBaseFragment implements View.OnClickListe
      * 点击显示Dialog
      */
     private void showDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.dialog);
-        View v = LayoutInflater.from(context).inflate(R.layout.equity_popupwindow, null);
-        builder.setView(v);
-        alertDialog = builder.create();
-        alertDialog.show();
-
-        Window window = alertDialog.getWindow();
-        WindowManager.LayoutParams params = window.getAttributes();
-        params.height = ScreenSizeUtil.getScreenSize(context, ScreenSizeUtil.ScreenState.HEIGHT) / 3 * 2;
-        params.width = ScreenSizeUtil.getScreenSize(context, ScreenSizeUtil.ScreenState.WIDTH) / 5 * 4;
-        window.setAttributes(params);
-
 
     }
 }

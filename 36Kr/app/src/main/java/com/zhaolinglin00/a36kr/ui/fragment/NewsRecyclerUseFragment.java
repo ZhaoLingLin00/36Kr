@@ -1,7 +1,11 @@
 package com.zhaolinglin00.a36kr.ui.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +44,8 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
     private List<LoopViewEntity> entities = new ArrayList<>();
     private boolean ifHaveHead;// 判断是否加载轮播图
 
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
 
     public static NewsRecyclerUseFragment newInstance(String url, boolean ifHaveHead) {
@@ -60,12 +66,16 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
     @Override
     protected void initViews() {
 
+        swipeRefreshLayout = byView(R.id.news_srl);
         newsListView = byView(R.id.news_recycle_use_listview);
         newsAdapter = new NewsAdapter(context);
     }
 
     @Override
     protected void initDatas() {
+
+        usrSwipeRefreshLayout();
+
         /**
          * Fragment单例中传网址,判断是否有轮播图
          */
@@ -146,6 +156,32 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
             }
         });
         newsListView.setAdapter(newsAdapter);
+    }
+
+//    private Handler handler = new Handler(){
+//        public  void handleMessage(Message msg){
+//            switch (msg.what){
+//                case REFRESH_COMPLETE:
+//
+//            }
+//        }
+//    };
+
+    private void usrSwipeRefreshLayout() {
+        swipeRefreshLayout.setColorSchemeColors(Color.BLUE,Color.GREEN);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                },3000);
+                Toast.makeText(context, "刷新完成", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     @Override

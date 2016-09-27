@@ -5,11 +5,14 @@
     android:orientation="vertical">
 
 
-    <ListView
-        android:id="@+id/news_recycle_use_listview"
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
-
+        android:layout_height="wrap_content"
+        android:id="@+id/news_srl">
+        <ListView
+            android:id="@+id/news_recycle_use_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>
