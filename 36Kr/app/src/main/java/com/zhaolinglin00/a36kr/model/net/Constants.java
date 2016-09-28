@@ -11,7 +11,7 @@ public final class Constants {
     /**
      * 新闻首页  全部  网址
      */
-    public static  final  String NEWS_ALL_URL = "https://rong.36kr.com/api/mobi/news?pagesize=20&columnid=all&pagingaction=up";
+    public static final String NEWS_ALL_URL = "https://rong.36kr.com/api/mobi/news?pagesize=20&columnid=all&pagingaction=up";
 
     /**
      * 新闻首页  早期项目  网址

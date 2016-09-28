@@ -29,21 +29,16 @@ import java.util.List;
 /**
  * 主界面
  */
-public class MainActivity extends AbsBaseActivity implements View.OnClickListener,IToDrawerLayout {
+public class MainActivity extends AbsBaseActivity implements View.OnClickListener, IToDrawerLayout {
 
     private TabLayout mainTabLayout;
     private ViewPager mainViewPager;
     private List<Fragment> mainFragments;
-
-    private ImageView mainDrawerBackImg;
     private NewsFragment newsFragment;
-
     private DrawerLayout drawerLayout;
-
     private LinearLayout linearLayoutDrawer;
-
-    private TextView allTv,zaoqiTv,blunhouTv,bigCompanyTv,capitalTv,depthTv,researchTv;
-
+    private ImageView mainDrawerBackImg;
+    private LinearLayout allLL, zaoqiLL, blunhouLL, bigCompanyLL, capitalLL, depthLL, researchLL;
 
     @Override
     protected int setLayout() {
@@ -58,21 +53,17 @@ public class MainActivity extends AbsBaseActivity implements View.OnClickListene
     protected void initViews() {
 
         newsFragment = NewsFragment.newInstance();
-
         mainTabLayout = byView(R.id.main_tab_layout);
         mainViewPager = byView(R.id.main_viewpager);
-
         drawerLayout = byView(R.id.main_drawer_layout);
         linearLayoutDrawer = byView(R.id.main_drawer_linear_layout);
-
-        allTv = byView(R.id.main_drawer_all_tv);
-        zaoqiTv = byView(R.id.main_drawer_zaoqi_tv);
-        blunhouTv = byView(R.id.main_drawer_blunhou_tv);
-        bigCompanyTv = byView(R.id.main_drawer_bigcompany_tv);
-        capitalTv = byView(R.id.main_drawer_capital_tv);
-        depthTv = byView(R.id.main_drawer_depth_tv);
-        researchTv = byView(R.id.main_drawer_research_tv);
-
+        allLL = byView(R.id.main_drawer_all);
+        zaoqiLL = byView(R.id.main_drawer_zaoqi);
+        blunhouLL = byView(R.id.main_drawer_blunhou);
+        bigCompanyLL = byView(R.id.main_drawer_bigcompany);
+        capitalLL = byView(R.id.main_drawer_capital);
+        depthLL = byView(R.id.main_drawer_depth);
+        researchLL = byView(R.id.main_drawer_research);
         mainDrawerBackImg = byView(R.id.main_drawer_back_img);
 
     }
@@ -81,21 +72,15 @@ public class MainActivity extends AbsBaseActivity implements View.OnClickListene
     protected void initDatas() {
 
         mainDrawerBackImg.setOnClickListener(this);
-
-
-
         mainFragments = new ArrayList<>();
-
 //        getSupportFragmentManager().beginTransaction().replace(R.id.news_framelayout,newsFragment).commit();
-
-        allTv.setOnClickListener(this);
-        zaoqiTv.setOnClickListener(this);
-        blunhouTv.setOnClickListener(this);
-        bigCompanyTv.setOnClickListener(this);
-        capitalTv.setOnClickListener(this);
-        depthTv.setOnClickListener(this);
-        researchTv.setOnClickListener(this);
-
+        allLL.setOnClickListener(this);
+        zaoqiLL.setOnClickListener(this);
+        blunhouLL.setOnClickListener(this);
+        bigCompanyLL.setOnClickListener(this);
+        capitalLL.setOnClickListener(this);
+        depthLL.setOnClickListener(this);
+        researchLL.setOnClickListener(this);
 
         mainFragments.add(newsFragment);
         mainFragments.add(EquityFragment.newInstance());
@@ -105,7 +90,6 @@ public class MainActivity extends AbsBaseActivity implements View.OnClickListene
 
 //        mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager());
 //        mainViewPager.setAdapter(mainViewPagerAdapter);
-
         mainViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -142,9 +126,9 @@ public class MainActivity extends AbsBaseActivity implements View.OnClickListene
         mainTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 0){
+                if (tab.getPosition() == 0) {
                     drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-                }else{
+                } else {
                     drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
                 }
                 mainViewPager.setCurrentItem(mainTabLayout.getSelectedTabPosition());
@@ -152,48 +136,47 @@ public class MainActivity extends AbsBaseActivity implements View.OnClickListene
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
     }
 
     /**
      * 点击事件
+     *
      * @param v
      */
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.main_drawer_all_tv:
+        switch (v.getId()) {
+            case R.id.main_drawer_all:
                 newsFragment.changeFragment(NewsRecyclerUseFragment.newInstance(Constants.NEWS_ALL_URL, true));
                 newsFragment.changeTextViewText("新闻");
                 break;
-            case  R.id.main_drawer_zaoqi_tv:
+            case R.id.main_drawer_zaoqi:
                 newsFragment.changeFragment(NewsRecyclerUseFragment.newInstance(Constants.NEWS_ZAOQIXIANGMU_URL, false));
                 newsFragment.changeTextViewText("早期项目");
                 break;
-            case R.id.main_drawer_blunhou_tv:
+            case R.id.main_drawer_blunhou:
                 newsFragment.changeFragment(NewsRecyclerUseFragment.newInstance(Constants.NEWS_BLUNHOU_URL, false));
                 newsFragment.changeTextViewText("B轮后");
                 break;
-            case R.id.main_drawer_bigcompany_tv:
+            case R.id.main_drawer_bigcompany:
                 newsFragment.changeFragment(NewsRecyclerUseFragment.newInstance(Constants.NEWS_BIG_COMPANY_URL, false));
                 newsFragment.changeTextViewText("大公司");
                 break;
-            case R.id.main_drawer_capital_tv:
+            case R.id.main_drawer_capital:
                 newsFragment.changeFragment(NewsRecyclerUseFragment.newInstance(Constants.NEWS_CAPITAL_URL, false));
                 newsFragment.changeTextViewText("资本");
                 break;
-            case R.id.main_drawer_depth_tv:
+            case R.id.main_drawer_depth:
                 newsFragment.changeFragment(NewsRecyclerUseFragment.newInstance(Constants.NEWS_DEPTH_URL, false));
                 newsFragment.changeTextViewText("深度");
                 break;
-            case R.id.main_drawer_research_tv:
+            case R.id.main_drawer_research:
                 newsFragment.changeFragment(NewsRecyclerUseFragment.newInstance(Constants.NEWS_RESEARCH_URL, false));
                 newsFragment.changeTextViewText("研究");
                 break;
@@ -205,17 +188,19 @@ public class MainActivity extends AbsBaseActivity implements View.OnClickListene
 
     /**
      * 实现接口
+     *
      * @param position
      */
     @Override
     public void onToDrawerLayout(int position) {
-        if (position == 0){
+        if (position == 0) {
             drawerLayout.openDrawer(linearLayoutDrawer);// 打开抽屉
         }
     }
 
     /**
      * 返回键监听
+     *
      * @param keyCode
      * @param event
      * @return

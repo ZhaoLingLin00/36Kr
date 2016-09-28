@@ -22,7 +22,6 @@ import java.util.List;
 public class RecentActivity extends AbsBaseActivity implements View.OnClickListener {
 
     private ImageView recentBackImg;
-
     private RecentAdapter recentAdapter;
     private ListView recentListView;
 
@@ -35,13 +34,11 @@ public class RecentActivity extends AbsBaseActivity implements View.OnClickListe
     protected void initViews() {
         recentBackImg = byView(R.id.recent_back_img);
         recentListView = byView(R.id.recent_listview);
-
     }
 
     @Override
     protected void initDatas() {
         recentBackImg.setOnClickListener(this);
-
         recentAdapter = new RecentAdapter(this);
         recentListView.setAdapter(recentAdapter);
 
@@ -49,25 +46,25 @@ public class RecentActivity extends AbsBaseActivity implements View.OnClickListe
             @Override
             public void success(String resultString) {
                 Gson gson = new Gson();
-                RecentBean recentBean = gson.fromJson(resultString,RecentBean.class);
+                RecentBean recentBean = gson.fromJson(resultString, RecentBean.class);
                 List<RecentBean.DataBean.Databean> datas = recentBean.getData().getData();
                 recentAdapter.setDatas(datas);
             }
 
             @Override
             public void failure() {
-
             }
         });
     }
 
     /**
      * 点击事件
+     *
      * @param v
      */
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.recent_back_img:// 结束当前页面
                 finish();
                 break;

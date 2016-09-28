@@ -1,10 +1,7 @@
 package com.zhaolinglin00.a36kr.ui.activity;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.Spanned;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -13,7 +10,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -25,30 +21,23 @@ import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
 import com.zhaolinglin00.a36kr.model.net.VolleyResult;
 import com.zhaolinglin00.a36kr.utils.ScreenSizeUtil;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Created by dllo on 16/9/26.
+ * 新闻详情界面
  */
-public class DetailsActivity extends AbsBaseActivity {
-
-    private ScrollView detailsScrollView;
+public class DetailsActivity extends AbsBaseActivity implements View.OnClickListener {
 
     private ImageView detailsPhotoImg;
-    private TextView detailsAuthorTv, detailsIntroduceTv,detailsTitleTv,detailsTimeTv,detailsContentTv;
+    private TextView detailsAuthorTv, detailsIntroduceTv,detailsTitleTv,detailsTimeTv;
     private String string;
-
     private LinearLayout detailsLl;
-
     private WebView webView;
+    private GestureDetector gestureDetector;// 手势监听
 
-
-    private GestureDetector gestureDetector;
+    private ImageView detailsBackImg;
 
     @Override
     protected int setLayout() {
@@ -64,36 +53,38 @@ public class DetailsActivity extends AbsBaseActivity {
         detailsTimeTv = byView(R.id.details_time_tv);
         detailsTitleTv = byView(R.id.details_title_tv);
 
-        detailsScrollView = byView(R.id.details_sv);
-
         detailsLl = byView(R.id.details_ll);
 
         webView = byView(R.id.webview);
+
+        detailsBackImg = byView(R.id.details_back_img);
 
     }
 
     @Override
     protected void initDatas() {
 
+        detailsBackImg.setOnClickListener(this);
+
         Intent intent = getIntent();
-        if (intent != null){
-            Bundle bundle=getIntent().getExtras();
-            string=bundle.getString("id");
-            Log.d("ffff", string+"接到了");
+        if (intent != null) {
+            Bundle bundle = getIntent().getExtras();
+            string = bundle.getString("id");
+            Log.d("ffff", string + "接到了");
         }
 //        intent.putExtra(string,"id");
         VolleyInstance.getVolleyInatance().startRequest(Constants.DETAILS_URL + string, new VolleyResult() {
             @Override
             public void success(String resultString) {
                 Gson gson = new Gson();
-                final DetailsBean detailsBean = gson.fromJson(resultString,DetailsBean.class);
+                final DetailsBean detailsBean = gson.fromJson(resultString, DetailsBean.class);
                 detailsTitleTv.setText(detailsBean.getData().getTitle());
                 Log.d("DetailsActivity", "detailsTitleTv:" + detailsTitleTv);
                 detailsAuthorTv.setText(detailsBean.getData().getUser().getName());
                 // 获取HTML文本
                 String string = detailsBean.getData().getContent();
                 // 将HTML转换为textview可显示的类型
-                Log.d("DetailsActivity", "detailsContentTv:" + detailsContentTv);
+                Log.d("DetailsActivity", string);
 
                 long time = detailsBean.getData().getPublishTime();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
@@ -112,20 +103,20 @@ public class DetailsActivity extends AbsBaseActivity {
 //                webSettings.setDisplayZoomControls(true);// 设置可以被显示的屏幕控制
 //                webSettings.setDefaultFixedFontSize(16);// 设置默认字体大小
 
+                webView.loadData(string, "text/html; charset=UTF-8", null);
 
-                webView.loadData(string,"text/html; charset=UTF-8",null);
-
-
-                Picasso.with(DetailsActivity.this).load(detailsBean.getData().getUser().getAvatar()).resize(ScreenSizeUtil.getScreenWidth(DetailsActivity.this)/8,
-                        ScreenSizeUtil.getScreenheight(DetailsActivity.this)/12).into(detailsPhotoImg);
-
+                if (detailsBean.getData().getUser().getAvatar() == null) {
+                    detailsPhotoImg.setImageResource(R.mipmap.logo);
+                } else {
+                    Picasso.with(DetailsActivity.this).load(detailsBean.getData().getUser().getAvatar()).resize(ScreenSizeUtil.getScreenWidth(DetailsActivity.this) / 8,
+                            ScreenSizeUtil.getScreenheight(DetailsActivity.this) / 12).into(detailsPhotoImg);
+                }
             }
+
             @Override
             public void failure() {
-
             }
         });
-
 
         gestureDetector = new GestureDetector(this, new GestureDetector.OnGestureListener() {
             @Override
@@ -135,7 +126,6 @@ public class DetailsActivity extends AbsBaseActivity {
 
             @Override
             public void onShowPress(MotionEvent e) {
-
             }
 
             @Override
@@ -144,12 +134,11 @@ public class DetailsActivity extends AbsBaseActivity {
             }
 
             @Override
-
             public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
                 if (e2.getY() - e1.getY() < 0) {
                     detailsLl.setVisibility(View.GONE);
                 }
-                if (e2.getY() - e1.getY() > 0){
+                if (e2.getY() - e1.getY() > 0) {
                     detailsLl.setVisibility(View.VISIBLE);
                 }
                 return false;
@@ -157,7 +146,6 @@ public class DetailsActivity extends AbsBaseActivity {
 
             @Override
             public void onLongPress(MotionEvent e) {
-
             }
 
             @Override
@@ -168,13 +156,12 @@ public class DetailsActivity extends AbsBaseActivity {
                 if (e2.getY() - e1.getY() < 0) {
                     detailsLl.setVisibility(View.GONE);
                 }
-                if (e2.getY() - e1.getY() > 0){
+                if (e2.getY() - e1.getY() > 0) {
                     detailsLl.setVisibility(View.VISIBLE);
                 }
                 return false;
             }
         });
-
     }
 
     @Override
@@ -186,5 +173,14 @@ public class DetailsActivity extends AbsBaseActivity {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         gestureDetector.onTouchEvent(ev);
         return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.details_back_img:
+                finish();
+                break;
+        }
     }
 }

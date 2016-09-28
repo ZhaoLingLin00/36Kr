@@ -29,7 +29,6 @@ public class NewsAdapter extends BaseAdapter {
     private Context context;
     private List<NewsBean.DataBean.DataBean1> datas;
 
-
     public NewsAdapter(Context context) {
         this.context = context;
     }
@@ -38,7 +37,6 @@ public class NewsAdapter extends BaseAdapter {
         this.datas = datas;
         notifyDataSetChanged();
     }
-
 
     @Override
     public int getCount() {
@@ -80,7 +78,7 @@ public class NewsAdapter extends BaseAdapter {
 //            Log.d("NewsAdapter", "columnIdInt:" + columnIdInt);
 
             String columnName = dataBean1.getColumnName();
-            Log.d("NewsAdapter", columnName+"");
+            Log.d("NewsAdapter", columnName + "");
 //            newsViewHolder.newsColumnTv.setText(dataBean1.getColumnName());
             newsViewHolder.newsAuthorTv.setText(dataBean1.getUser().getName());
             newsViewHolder.newsColumnTv.setText(columnName);
@@ -88,32 +86,14 @@ public class NewsAdapter extends BaseAdapter {
             // 根据columnId设置字体颜色
 //            if (columnIdInt == 107){
 //                newsViewHolder.newsColumnTv.setTextColor();
-//
 //            }
 
             // 根据columnName设置字体颜色(
-            if (columnName.equals("早期项目")){
+            if (columnName.equals("早期项目")) {
                 newsViewHolder.newsColumnTv.setTextColor(Color.GREEN);
-            }else {
+            } else {
                 newsViewHolder.newsColumnTv.setTextColor(Color.parseColor("#4876FF"));
             }
-//            else  if (columnName.equals("大公司")){
-//                newsViewHolder.newsColumnTv.setTextColor(Color.parseColor("#4876FF"));
-//            }
-//            else if (columnName.equals("深度")){
-//                newsViewHolder.newsColumnTv.setTextColor(Color.RED);
-//            }
-//            else if (columnName.equals("氪友")){
-//                newsViewHolder.newsColumnTv.setTextColor(Color.parseColor("#4876FF"));
-//            }
-//            else if (columnName.equals("8点1氪")){
-//                newsViewHolder.newsColumnTv.setTextColor(Color.parseColor("#4876FF"));
-//            }
-//            else if (columnName.equals("酷公司")){
-//                newsViewHolder.newsColumnTv.setTextColor(Color.parseColor("#4876FF"));
-//            }else {
-//                newsViewHolder.newsColumnTv.setTextColor(Color.parseColor("#4876FF"));
-//            }
 
             // 转换时间格式
             long stringT = dataBean1.getPublishTime();
@@ -125,7 +105,7 @@ public class NewsAdapter extends BaseAdapter {
             // 将转换格式完成的时间set
             newsViewHolder.newsDateTv.setText(finalDate);
             // 毕加索解析网络图片裁剪大小
-            Picasso.with(context).load(dataBean1.getFeatureImg()).resize(ScreenSizeUtil.getScreenWidth(context)/4,ScreenSizeUtil.getScreenheight(context)/8).into(newsViewHolder.newsLogoImg);
+            Picasso.with(context).load(dataBean1.getFeatureImg()).resize(ScreenSizeUtil.getScreenWidth(context) / 4, ScreenSizeUtil.getScreenheight(context) / 8).into(newsViewHolder.newsLogoImg);
         }
         return convertView;
     }

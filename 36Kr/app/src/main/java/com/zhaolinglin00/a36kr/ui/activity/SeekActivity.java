@@ -24,7 +24,6 @@ public class SeekActivity extends AbsBaseActivity implements View.OnClickListene
     private SeekAdapter seekAdapter;
     private ListView seekListView;
 
-
     @Override
     protected int setLayout() {
         return R.layout.activity_seek;
@@ -46,7 +45,7 @@ public class SeekActivity extends AbsBaseActivity implements View.OnClickListene
             @Override
             public void success(String resultString) {
                 Gson gson = new Gson();
-                SeekBean seekBean = gson.fromJson(resultString,SeekBean.class);
+                SeekBean seekBean = gson.fromJson(resultString, SeekBean.class);
                 List<SeekBean.DataBean.Databean> databeen = seekBean.getData().getData();
                 seekAdapter.setDatas(databeen);
             }
@@ -56,12 +55,11 @@ public class SeekActivity extends AbsBaseActivity implements View.OnClickListene
 
             }
         });
-
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.seek_back_img:
                 finish();
                 break;

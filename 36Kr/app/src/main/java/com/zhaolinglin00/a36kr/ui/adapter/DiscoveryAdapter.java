@@ -60,10 +60,6 @@ public class DiscoveryAdapter extends BaseAdapter {
             discoveryViewHolder.discoveryCompanyIntroducefTv.setText(datas.get(position).getCompany_brief());
             discoveryViewHolder.discoveryFounderIntroduceTv.setText(datas.get(position).getCompany_brief());
         }
-
-
-
-
         return convertView;
     }
 
@@ -77,14 +73,6 @@ public class DiscoveryAdapter extends BaseAdapter {
             discoveryCompanyNameTv = (TextView) view.findViewById(R.id.discovery_project_name_tv);
             discoveryCompanyIntroducefTv = (TextView) view.findViewById(R.id.discovery_project_introduce_img);
             discoveryFounderIntroduceTv = (TextView) view.findViewById(R.id.discovery_founder_introduce_tv);
-
-
         }
     }
-
-
-
-
-
-
 }

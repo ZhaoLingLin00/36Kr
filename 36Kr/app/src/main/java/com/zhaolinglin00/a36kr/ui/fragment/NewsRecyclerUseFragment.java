@@ -24,6 +24,7 @@ import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
 import com.zhaolinglin00.a36kr.model.net.VolleyResult;
 import com.zhaolinglin00.a36kr.ui.activity.DetailsActivity;
 import com.zhaolinglin00.a36kr.ui.adapter.NewsAdapter;
+import com.zhaolinglin00.a36kr.utils.RefreshLayout;
 import com.zhaolinglin00.a36kr.view.loopview.LoopView;
 import com.zhaolinglin00.a36kr.view.loopview.LoopViewEntity;
 
@@ -39,13 +40,15 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
     private NewsAdapter newsAdapter;
     private ListView newsListView;
 
+    private List<NewsBean.DataBean.DataBean1> datas;
+
     private NewsBean newsBean;
     private LoopView newsLoopView;
     private List<LoopViewEntity> entities = new ArrayList<>();
     private boolean ifHaveHead;// 判断是否加载轮播图
 
-    private SwipeRefreshLayout swipeRefreshLayout;
-
+    private RefreshLayout refreshLayout;
+    private List<NewsBean.DataBean.DataBean1> list;
 
 
     public static NewsRecyclerUseFragment newInstance(String url, boolean ifHaveHead) {
@@ -66,15 +69,19 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
     @Override
     protected void initViews() {
 
-        swipeRefreshLayout = byView(R.id.news_srl);
+        refreshLayout = byView(R.id.news_srl);
+
         newsListView = byView(R.id.news_recycle_use_listview);
-        newsAdapter = new NewsAdapter(context);
     }
 
     @Override
     protected void initDatas() {
 
-        usrSwipeRefreshLayout();
+        newsAdapter = new NewsAdapter(context);
+        newsListView.setAdapter(newsAdapter);
+
+
+
 
         /**
          * Fragment单例中传网址,判断是否有轮播图
@@ -129,7 +136,7 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
 
             @Override
             public void failure() {
-                Log.d("xxxxxx", "获取失败");
+                Log.d("xxxxxx", "轮播图获取失败");
             }
         });
 
@@ -144,9 +151,8 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
                 Gson gson = new Gson();
                 newsBean = gson.fromJson(resultString, NewsBean.class);
                 Log.d("NewsFragment", "newsBean.getData().getData().size():" + newsBean.getData().getData().size());
-                List<NewsBean.DataBean.DataBean1> datas = newsBean.getData().getData();
+                datas = newsBean.getData().getData();
                 Log.d("xxx", "datas:" + datas);
-
                 newsAdapter.setDatas(datas);
             }
 
@@ -155,43 +161,79 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
 
             }
         });
-        newsListView.setAdapter(newsAdapter);
-    }
 
-//    private Handler handler = new Handler(){
-//        public  void handleMessage(Message msg){
-//            switch (msg.what){
-//                case REFRESH_COMPLETE:
-//
-//            }
-//        }
-//    };
 
-    private void usrSwipeRefreshLayout() {
-        swipeRefreshLayout.setColorSchemeColors(Color.BLUE,Color.GREEN);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        swipeRefreshLayout.setRefreshing(false);
+
+                        VolleyInstance.getVolleyInatance().startRequest(Constants.NEWS_ALL_URL, new VolleyResult() {
+
+                            @Override
+                            public void success(String resultString) {
+                                Gson gson = new Gson();
+                                newsBean = gson.fromJson(resultString, NewsBean.class);
+                                Log.d("NewsFragment", "newsBean.getData().getData().size():" + newsBean.getData().getData().size());
+                                List<NewsBean.DataBean.DataBean1> datas = newsBean.getData().getData();
+                                Log.d("xxx", "datas:" + datas);
+                                newsAdapter.setDatas(datas);
+                                refreshLayout.setRefreshing(false);
+
+                            }
+
+                            @Override
+                            public void failure() {
+
+                            }
+                        });
+
+
                     }
                 },3000);
-                Toast.makeText(context, "刷新完成", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        refreshLayout.setOnLoadListener(new RefreshLayout.OnLoadListener() {
+            @Override
+            public void onLoad() {
+                refreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        VolleyInstance.getVolleyInatance().startRequest(Constants.NEWS_ALL_URL, new VolleyResult() {
+                            @Override
+                            public void success(String resultString) {
+                                Gson gson = new Gson();
+                                newsBean = gson.fromJson(resultString, NewsBean.class);
+                                Log.d("NewsFragment", "newsBean.getData().getData().size():" + newsBean.getData().getData().size());
+                                list = newsBean.getData().getData();
+                                Log.d("xxx", "datas:" + list);
+                                datas.addAll(list);
+                                newsAdapter.setDatas(datas);
+                                refreshLayout.setLoading(false);
+//                                refreshLayout.removeCallbacks();
+                            }
+                            @Override
+                            public void failure() {
+                            }
+                        });
+                    }
+                },3000);
             }
         });
     }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //        Intent intent = new Intent(context,DetailsActivity.class);
 //        startActivity(intent);
-        List<NewsBean.DataBean.DataBean1> datas = newsBean.getData().getData();
-        Log.d("ffff", "position:" + position);
+//        List<NewsBean.DataBean.DataBean1> datas = newsBean.getData().getData();
+        NewsBean.DataBean.DataBean1 dataBean1 = (NewsBean.DataBean.DataBean1) parent.getItemAtPosition(position);
         Bundle bd = new Bundle();
-        String str = datas.get(position-1).getFeedId();
+        String str = dataBean1.getFeedId();
         Log.d("ffff", str);
         bd.putString("id",str);
         goTo(DetailsActivity.class,bd);

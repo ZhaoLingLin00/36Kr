@@ -139,18 +139,13 @@
                 android:text="募资中"
                 android:textColor="@color/colorTheme"
                 android:textSize="16sp" />
-
-            <ProgressBar
-                android:id="@+id/equity_progressbar"
+            <SeekBar
+                android:id="@+id/equity_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="100"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_alignLeft="@id/item_equity_muzi_tv"
                 android:layout_below="@id/item_equity_muzi_tv"
-                android:progressBackgroundTint="#9d9d9d"
-                android:progressDrawable="@drawable/shape_progressbar"/>
-            <!--android:progressTint="@color/colorTheme"-->
+
+                android:max="100"/>
 
             <TextView
                 android:id="@+id/equity_rate_tv"

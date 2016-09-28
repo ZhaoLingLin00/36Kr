@@ -2,13 +2,13 @@ package com.zhaolinglin00.a36kr.ui.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -23,7 +23,6 @@ import java.util.List;
  * 股权投资复用Fragment的适配器
  */
 public class EquityAllAdapter extends BaseAdapter {
-
 
     private Context context;
     private List<EquityAllBean.DataBean.DataBean1> datas;
@@ -83,9 +82,9 @@ public class EquityAllAdapter extends BaseAdapter {
             equityAllViewHolder.equityHatcherNameTv.setText(dataBean1.getCf_advantage().get(1).getAdcontent());
             String muzi = dataBean1.getFundStatus().getDesc();
             equityAllViewHolder.equityMuziTv.setText(muzi);
-            if (muzi.equals("募资中")){
+            if (muzi.equals("募资中")) {
                 equityAllViewHolder.equitySubscribeTv.setText("认购");
-            }else {
+            } else {
                 equityAllViewHolder.equitySubscribeTv.setTextColor(Color.WHITE);
                 equityAllViewHolder.equitySubscribeTv.setText("去看看");
             }
@@ -94,10 +93,10 @@ public class EquityAllAdapter extends BaseAdapter {
             equityAllViewHolder.equityConcernTv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (concern == false){
+                    if (concern == false) {
                         finalEquityAllViewHolder.equityConcernTv.setText("已关注");
                         concern = true;
-                    }else {
+                    } else {
                         finalEquityAllViewHolder.equityConcernTv.setText("关注");
                         concern = false;
                     }
@@ -105,16 +104,16 @@ public class EquityAllAdapter extends BaseAdapter {
             });
 
             // 转换投资进度百分比
-            double num = dataBean1.getRate() ;
+            double num = dataBean1.getRate();
             int number = (int) (num * 100);
-            String text = number +"%";
-            equityAllViewHolder.equityRateTv.setText("已募资"+text);
-            if (number>=100){
+            String text = number + "%";
+            equityAllViewHolder.equityRateTv.setText("已募资" + text);
+            if (number >= 100) {
                 equityAllViewHolder.equityRateTv.setTextColor(Color.RED);
             }
-
-            equityAllViewHolder.equityProgressBar.setProgress(number);
-
+            equityAllViewHolder.equitySeekBar.setProgress(number);
+//            equityAllViewHolder.equitySeekBar.setEnabled(false);
+//            equityAllViewHolder.equityProgressBar.setProgress(number);
             Picasso.with(context).load(dataBean1.getCompany_logo()).resize(ScreenSizeUtil.getScreenWidth(context) / 8, ScreenSizeUtil.getScreenheight(context) / 10).into(equityAllViewHolder.equityLogoImg);
             Picasso.with(context).load(dataBean1.getFile_list_img()).resize(ScreenSizeUtil.getScreenSize(context, ScreenSizeUtil.ScreenState.WIDTH), ScreenSizeUtil.getScreenSize(context, ScreenSizeUtil.ScreenState.HEIGHT) / 4).into(equityAllViewHolder.equityBigImg);
         }
@@ -124,10 +123,19 @@ public class EquityAllAdapter extends BaseAdapter {
     public class EquityAllViewHolder {
 
         ImageView equityLogoImg, equityBigImg;
-        TextView equityCompanyNameTv, equityCompanyBirefTv, equityLeadNameTv, equityFounderIntroduceTv,
-                equityFounderTv, equityHatcherTv, equityHatcherNameTv, equityMuziTv, equitySubscribeTv, equityRateTv,equityConcernTv;
+        TextView equityCompanyNameTv;
+        TextView equityCompanyBirefTv;
+        TextView equityLeadNameTv;
+        TextView equityFounderIntroduceTv;
+        TextView equityFounderTv;
+        TextView equityHatcherTv;
+        TextView equityHatcherNameTv;
+        TextView equityMuziTv;
+        TextView equitySubscribeTv;
+        TextView equityRateTv;
+        TextView equityConcernTv;
+        SeekBar equitySeekBar;
 
-        ProgressBar equityProgressBar;
         public EquityAllViewHolder(View view) {
             equityLogoImg = (ImageView) view.findViewById(R.id.item_equity_logo_img);// logo图片
             equityBigImg = (ImageView) view.findViewById(R.id.item_equity_big_img);// 大图片
@@ -141,8 +149,8 @@ public class EquityAllAdapter extends BaseAdapter {
             equityMuziTv = (TextView) view.findViewById(R.id.item_equity_muzi_tv);// 募资状态
             equitySubscribeTv = (TextView) view.findViewById(R.id.equity_subscribe_tv);// 认购or去看看
             equityRateTv = (TextView) view.findViewById(R.id.equity_rate_tv);// 募资完成百分比
-            equityProgressBar = (ProgressBar) view.findViewById(R.id.equity_progressbar);// 进度
             equityConcernTv = (TextView) view.findViewById(R.id.item_equity_concern_tv);
+            equitySeekBar = (SeekBar) view.findViewById(R.id.equity_seekbar);
 
 
         }

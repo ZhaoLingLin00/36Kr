@@ -1,12 +1,13 @@
 package com.zhaolinglin00.a36kr.ui.activity;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 
 /**
  * Created by dllo on 16/9/8.
@@ -14,9 +15,17 @@ import android.view.View;
  */
 public abstract class AbsBaseActivity extends AppCompatActivity {
 
+
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            //透明状态栏
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//        }
 
         // 定制流程
         // 设置布局
@@ -25,6 +34,8 @@ public abstract class AbsBaseActivity extends AppCompatActivity {
         initViews();
         // 初始化数据
         initDatas();
+
+
 
     }
 

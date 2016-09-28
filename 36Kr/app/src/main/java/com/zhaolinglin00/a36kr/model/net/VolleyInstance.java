@@ -31,6 +31,7 @@ public class VolleyInstance {
 
     /**
      * 对外提供获取对象的静态方法
+     *
      * @return
      */
     public static VolleyInstance getVolleyInatance() {
@@ -46,6 +47,7 @@ public class VolleyInstance {
 
     /**
      * 对外提供请求方法
+     *
      * @param url
      * @param result
      */

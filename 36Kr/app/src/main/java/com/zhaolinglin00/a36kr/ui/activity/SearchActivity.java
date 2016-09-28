@@ -33,6 +33,7 @@ public class SearchActivity extends AbsBaseActivity implements View.OnClickListe
 
     /**
      * 点击事件
+     *
      * @param v
      */
     @Override

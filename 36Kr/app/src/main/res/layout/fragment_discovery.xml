@@ -374,41 +374,42 @@
                     android:layout_below="@id/discovery_information_tv"
                     android:layout_marginTop="10dp"
                     android:background="#dcdcdc" />
-
-                <TextView
-                    android:id="@+id/discovery_news"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/discovery_days_img"
+                    android:orientation="horizontal"
                     android:layout_below="@id/discovery_view2"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/shape_discovery_information"
-                    android:text="行业新闻"
-                    android:textSize="16sp" />
+                    android:weightSum="3">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="行业新闻"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/shape_discovery_information"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_margin="20dp"
+                        android:layout_weight="1"
+                        android:text="项目动态"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/shape_discovery_information"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:text="投资活动"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/shape_discovery_information"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/discovery_trends"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/discovery_news"
-                    android:layout_below="@id/discovery_view2"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_toRightOf="@id/discovery_news"
-                    android:background="@drawable/shape_discovery_information"
-                    android:text="项目动态"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/discovery_news"
-                    android:layout_below="@id/discovery_view2"
-                    android:layout_marginBottom="20dp"
-                    android:layout_toRightOf="@id/discovery_trends"
-                    android:background="@drawable/shape_discovery_information"
-                    android:text="行业新闻"
-                    android:textSize="16sp" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -416,7 +417,6 @@
             android:id="@+id/discovery_view3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="10dp"
             android:background="#dcdcdc" />
 
         <LinearLayout

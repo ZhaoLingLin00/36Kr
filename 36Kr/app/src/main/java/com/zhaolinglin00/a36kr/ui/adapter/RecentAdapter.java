@@ -87,11 +87,6 @@ public class RecentAdapter extends BaseAdapter {
             recentEnrollTv = (TextView) view.findViewById(R.id.item_recent_enroll_tv);
             recentLocationTv = (TextView) view.findViewById(R.id.item_recent_location_tv);
             recentTimeTv = (TextView) view.findViewById(R.id.item_recent_time_tv);
-
-
         }
-
-
     }
-
 }

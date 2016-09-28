@@ -121,7 +121,7 @@ public class EquityFragment extends AbsBaseFragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.equity_title_investment:// 点击出Dialog
                 //        carateWindow();
-//                Log.d("EquityFragment", "点击了");
+                Log.d("EquityFragment", "点击了");
 //                showDialog();
 //                Log.d("EquityFragment", "点击了图片");
                 if (dialogShow==false){
@@ -130,7 +130,6 @@ public class EquityFragment extends AbsBaseFragment implements View.OnClickListe
                     builder.setView(view);
                     alertDialog = builder.create();
                     alertDialog.show();
-
                     Window window = alertDialog.getWindow();
                     WindowManager.LayoutParams params = window.getAttributes();
                     params.height = ScreenSizeUtil.getScreenSize(context, ScreenSizeUtil.ScreenState.HEIGHT) / 3 * 2;
@@ -138,6 +137,18 @@ public class EquityFragment extends AbsBaseFragment implements View.OnClickListe
                     window.setAttributes(params);
                     dialogShow=true;
                 }else {
+////                    alertDialog.dismiss();
+//                    RotateAnimation rotateAnimation = new RotateAnimation(-60, 60,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+//                    rotateAnimation.setDuration(1000);
+//                    rotateAnimation.setFillAfter(false);
+////                    rotateAnimation.setRepeatCount(2);
+////                    rotateAnimation.setFillBefore(true);
+//                    rotateAnimation.setInterpolator(new CycleInterpolator(3));
+////                    rotateAnimation.setRepeatMode(Animation.RESTART);
+//                    showPopupImg.startAnimation(rotateAnimation);
+                    dialogShow=false;
+                }
+                if (alertDialog.isShowing()){
 //                    alertDialog.dismiss();
                     RotateAnimation rotateAnimation = new RotateAnimation(-60, 60,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
                     rotateAnimation.setDuration(1000);
@@ -147,7 +158,6 @@ public class EquityFragment extends AbsBaseFragment implements View.OnClickListe
                     rotateAnimation.setInterpolator(new CycleInterpolator(3));
 //                    rotateAnimation.setRepeatMode(Animation.RESTART);
                     showPopupImg.startAnimation(rotateAnimation);
-                    dialogShow=false;
                 }
                 break;
             case R.id.equity_title_search:// 点击跳转搜索界面

@@ -35,7 +35,6 @@ public class LogInActivity extends AbsBaseActivity implements View.OnClickListen
     protected void initViews() {
         loginTabLayout = byView(R.id.login_tablayout);
         loginViewPager = byView(R.id.login_viewpager);
-
         mainCloseImg = byView(R.id.main_close_img);
     }
 
@@ -47,10 +46,8 @@ public class LogInActivity extends AbsBaseActivity implements View.OnClickListen
 
     private void AddFragment() {
         loginFragments = new ArrayList<>();
-
         loginFragments.add(LoginFragment.newInstance());
         loginFragments.add(RegisterFragment.newInstance());
-
         loginViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {

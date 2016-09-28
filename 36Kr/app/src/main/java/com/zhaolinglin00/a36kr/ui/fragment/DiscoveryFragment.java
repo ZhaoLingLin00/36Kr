@@ -1,10 +1,14 @@
 package com.zhaolinglin00.a36kr.ui.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -33,12 +37,8 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
 
 
     private LoopView discoveryLoopView;
-
     private RelativeLayout discoveryRecentRL,discoverySeekRL;
-
     private List<LoopViewEntity> entities=new ArrayList<>();
-
-
 
     public static DiscoveryFragment newInstance() {
 
@@ -50,15 +50,20 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
     }
     @Override
     protected int setLayout() {
+
+//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            //透明状态栏
+//            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//        }
+
+
         return R.layout.fragment_discovery;
     }
 
     @Override
     protected void initViews() {
         discoveryLoopView = byView(R.id.discovery_loopview);
-
         discoveryRecentRL = byView(R.id.discovery_recent_rl);
-
         discoverySeekRL = byView(R.id.discovery_seek_rl);
 
     }
@@ -73,7 +78,6 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
          *  ScrollView的轮播图
          *  解析网络数据, 将解析的轮播图的网址放入集合中
          */
-
         VolleyInstance.getVolleyInatance().startRequest(Constants.CAROUSEL_URL, new VolleyResult() {
             @Override
             public void success(String resultString) {
@@ -112,7 +116,6 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
             }
         });
     }
-
 
     /**
      * 点击事件

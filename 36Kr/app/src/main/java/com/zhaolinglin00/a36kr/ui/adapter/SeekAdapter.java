@@ -22,6 +22,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/26.
+ * 寻找投资人适配器
  */
 public class SeekAdapter extends BaseAdapter {
 
@@ -71,8 +72,11 @@ public class SeekAdapter extends BaseAdapter {
             seekViewHolder.seekNameTv.setText(dataBean.getUser().getName());
             if (dataBean.getFocusIndustry()!=null){
                 for (int i = 0; i <dataBean.getFocusIndustry().size(); i++) {
+                    Log.d("SeekAdapter", "dataBean.getFocusIndustry().size():" + dataBean.getFocusIndustry().size());
                     string = dataBean.getFocusIndustry();
-                    Log.d("SeekAdapter", "string:" + string);
+                    String s = string + " ";
+                    Log.d("qqqqqqqqq", "qqqq"+s);
+                    Log.d("qqqqqqqqq", "string:" + string);
                 }
                     seekViewHolder.seekDomainTv.setText(string+"");
 
@@ -80,6 +84,8 @@ public class SeekAdapter extends BaseAdapter {
             if (dataBean.getFocusIndustry()!=null){
                 for (int i = 0; i <dataBean.getInvestPhases().size(); i++) {
                     str = dataBean.getInvestPhases();
+                    Log.d("qqqqqqqqq", "str:" + str);
+
                 }
                 seekViewHolder.seekStageTv.setText(str+"");
 
