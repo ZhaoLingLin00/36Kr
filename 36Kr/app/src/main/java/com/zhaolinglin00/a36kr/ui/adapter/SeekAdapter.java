@@ -35,8 +35,6 @@ public class SeekAdapter extends BaseAdapter {
         this.context = context;
     }
 
-
-
     public void setDatas(List<SeekBean.DataBean.Databean> datas) {
         this.datas = datas;
         notifyDataSetChanged();

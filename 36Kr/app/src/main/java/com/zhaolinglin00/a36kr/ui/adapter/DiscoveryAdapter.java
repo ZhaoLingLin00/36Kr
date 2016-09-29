@@ -54,12 +54,12 @@ public class DiscoveryAdapter extends BaseAdapter {
         }else {
             discoveryViewHolder = (DiscoveryViewHolder) convertView.getTag();
         }
-        if (convertView != null){
-            DiscoveryBean.DataBean.Databean databean = datas.get(position);
-            discoveryViewHolder.discoveryCompanyNameTv.setText(datas.get(position).getCompany_name());
-            discoveryViewHolder.discoveryCompanyIntroducefTv.setText(datas.get(position).getCompany_brief());
-            discoveryViewHolder.discoveryFounderIntroduceTv.setText(datas.get(position).getCompany_brief());
-        }
+//        if (convertView != null){
+//            DiscoveryBean.DataBean.Databean databean = datas.get(position);
+//            discoveryViewHolder.discoveryCompanyNameTv.setText(datas.get(position).getCompany_name());
+//            discoveryViewHolder.discoveryCompanyIntroducefTv.setText(datas.get(position).getCompany_brief());
+//            discoveryViewHolder.discoveryFounderIntroduceTv.setText(datas.get(position).getCompany_brief());
+//        }
         return convertView;
     }
 
@@ -69,10 +69,10 @@ public class DiscoveryAdapter extends BaseAdapter {
         TextView discoveryCompanyNameTv, discoveryCompanyIntroducefTv, discoveryFounderIntroduceTv;
 
         public DiscoveryViewHolder(View view) {
-            discoveryLogoImg = (ImageView) view.findViewById(R.id.discovery_project_logo_img);
-            discoveryCompanyNameTv = (TextView) view.findViewById(R.id.discovery_project_name_tv);
-            discoveryCompanyIntroducefTv = (TextView) view.findViewById(R.id.discovery_project_introduce_img);
-            discoveryFounderIntroduceTv = (TextView) view.findViewById(R.id.discovery_founder_introduce_tv);
+//            discoveryLogoImg = (ImageView) view.findViewById(R.id.discovery_project_logo_img);
+//            discoveryCompanyNameTv = (TextView) view.findViewById(R.id.discovery_project_name_tv);
+//            discoveryCompanyIntroducefTv = (TextView) view.findViewById(R.id.discovery_project_introduce_img);
+//            discoveryFounderIntroduceTv = (TextView) view.findViewById(R.id.discovery_founder_introduce_tv);
         }
     }
 }

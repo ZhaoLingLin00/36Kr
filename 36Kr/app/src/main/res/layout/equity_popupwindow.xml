@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:background="@mipmap/popupwindow"
         >
-
         <TextView
             android:id="@+id/certification_btn"
             android:layout_width="wrap_content"
@@ -22,7 +21,4 @@
             android:text="认证跟投人"
             android:textColor="#fff" />
     </RelativeLayout>
-
-
-
 </RelativeLayout>

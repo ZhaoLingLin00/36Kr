@@ -115,6 +115,7 @@ public class DetailsActivity extends AbsBaseActivity implements View.OnClickList
 
             @Override
             public void failure() {
+
             }
         });
 

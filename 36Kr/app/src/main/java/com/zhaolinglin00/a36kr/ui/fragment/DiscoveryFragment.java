@@ -20,7 +20,9 @@ import com.zhaolinglin00.a36kr.model.bean.CarouselBean;
 import com.zhaolinglin00.a36kr.model.net.Constants;
 import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
 import com.zhaolinglin00.a36kr.model.net.VolleyResult;
+import com.zhaolinglin00.a36kr.ui.activity.LunBoDetailsActivity;
 import com.zhaolinglin00.a36kr.ui.activity.RecentActivity;
+import com.zhaolinglin00.a36kr.ui.activity.ResearchActivity;
 import com.zhaolinglin00.a36kr.ui.activity.SeekActivity;
 import com.zhaolinglin00.a36kr.view.loopview.LoopView;
 import com.zhaolinglin00.a36kr.view.loopview.LoopViewEntity;
@@ -35,9 +37,8 @@ import java.util.List;
  */
 public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickListener {
 
-
     private LoopView discoveryLoopView;
-    private RelativeLayout discoveryRecentRL,discoverySeekRL;
+    private RelativeLayout discoveryRecentRL,discoverySeekRL,discoveryDecearchRL;
     private List<LoopViewEntity> entities=new ArrayList<>();
 
     public static DiscoveryFragment newInstance() {
@@ -65,6 +66,7 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
         discoveryLoopView = byView(R.id.discovery_loopview);
         discoveryRecentRL = byView(R.id.discovery_recent_rl);
         discoverySeekRL = byView(R.id.discovery_seek_rl);
+        discoveryDecearchRL = byView(R.id.discovery_research_rl);
 
     }
 
@@ -73,6 +75,7 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
 
         discoveryRecentRL.setOnClickListener(this);
         discoverySeekRL.setOnClickListener(this);
+        discoveryDecearchRL.setOnClickListener(this);
 
         /**
          *  ScrollView的轮播图
@@ -84,7 +87,7 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
                 Log.d("xxxxx", resultString);
                 Gson gson = new Gson();
 
-                CarouselBean carouselBean = gson.fromJson(resultString, CarouselBean.class);
+                final CarouselBean carouselBean = gson.fromJson(resultString, CarouselBean.class);
 
                 List<CarouselBean.DataBean.PicsBean> picsBeen=carouselBean.getData().getPics();
                 Log.d("qqq", picsBeen.get(0).getImgUrl());
@@ -107,6 +110,10 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
                     @Override
                     public void onItemClick(int position) {
                         Toast.makeText(context, "点击了" + position, Toast.LENGTH_SHORT).show();
+                        Bundle bundle = new Bundle();
+                        String s = carouselBean.getData().getPics().get(position).getLocation();
+                        bundle.putString("url",s);
+                        goTo(LunBoDetailsActivity.class,bundle);
                     }
                 });
             }
@@ -130,6 +137,10 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
             case R.id.discovery_seek_rl:
                 goTo(SeekActivity.class);
                 break;
+            case R.id.discovery_research_rl:
+                goTo(ResearchActivity.class);
+                break;
+
         }
     }
 }

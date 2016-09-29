@@ -23,6 +23,7 @@ import com.zhaolinglin00.a36kr.model.net.Constants;
 import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
 import com.zhaolinglin00.a36kr.model.net.VolleyResult;
 import com.zhaolinglin00.a36kr.ui.activity.DetailsActivity;
+import com.zhaolinglin00.a36kr.ui.activity.LunBoDetailsActivity;
 import com.zhaolinglin00.a36kr.ui.adapter.NewsAdapter;
 import com.zhaolinglin00.a36kr.utils.RefreshLayout;
 import com.zhaolinglin00.a36kr.view.loopview.LoopView;
@@ -39,17 +40,13 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
 
     private NewsAdapter newsAdapter;
     private ListView newsListView;
-
     private List<NewsBean.DataBean.DataBean1> datas;
-
+    private List<NewsBean.DataBean.DataBean1> list;
     private NewsBean newsBean;
     private LoopView newsLoopView;
     private List<LoopViewEntity> entities = new ArrayList<>();
     private boolean ifHaveHead;// 判断是否加载轮播图
-
     private RefreshLayout refreshLayout;
-    private List<NewsBean.DataBean.DataBean1> list;
-
 
     public static NewsRecyclerUseFragment newInstance(String url, boolean ifHaveHead) {
 
@@ -68,28 +65,20 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
 
     @Override
     protected void initViews() {
-
         refreshLayout = byView(R.id.news_srl);
-
         newsListView = byView(R.id.news_recycle_use_listview);
     }
 
     @Override
     protected void initDatas() {
-
         newsAdapter = new NewsAdapter(context);
         newsListView.setAdapter(newsAdapter);
-
-
-
-
         /**
          * Fragment单例中传网址,判断是否有轮播图
          */
         Bundle bundle = getArguments();
         String string = bundle.getString("url");
         ifHaveHead = bundle.getBoolean("if");
-
         newsListView.setOnItemClickListener(this);
 
         /**
@@ -102,15 +91,27 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
         }
         Log.d("zzz", "---执行--");
 
-        /**
-         * 解析轮播图网络数据
-         */
+
+        //解析轮播图网络数据
+        showLunBo();
+        //解析ListView网络数据
+        showListView(string);
+        // 下拉刷新
+        onRefreshListener();
+        // 上拉加载
+        onLoadListener();
+    }
+
+    /**
+     * 轮播图
+     */
+    private void showLunBo() {
         VolleyInstance.getVolleyInatance().startRequest(Constants.CAROUSEL_URL, new VolleyResult() {
             @Override
             public void success(String resultString) {
                 Log.d("xxxxx", resultString);
                 Gson gson = new Gson();
-                CarouselBean carouselBean = gson.fromJson(resultString, CarouselBean.class);
+                final CarouselBean carouselBean = gson.fromJson(resultString, CarouselBean.class);
                 List<CarouselBean.DataBean.PicsBean> picsBeen = carouselBean.getData().getPics();
                 Log.d("NewsRecyclerUseFragment", picsBeen.get(0).getImgUrl());
                 LoopViewEntity entity = new LoopViewEntity();
@@ -130,6 +131,15 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
                     @Override
                     public void onItemClick(int position) {
                         Toast.makeText(context, "点击了" + position, Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(context, LunBoDetailsActivity.class);
+//                        startActivity(intent);
+                        Bundle bundle = new Bundle();
+                        String s = carouselBean.getData().getPics().get(position).getLocation();
+                        String title = carouselBean.getData().getPics().get(position).getTitle();
+                        bundle.putString("url",s);
+                        bundle.putString("title",title);
+                        goTo(LunBoDetailsActivity.class,bundle);
+
                     }
                 });
             }
@@ -139,11 +149,13 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
                 Log.d("xxxxxx", "轮播图获取失败");
             }
         });
+    }
 
-
-        /**
-         * 解析ListView网络数据
-         */
+    /**
+     * listView数据解析
+     * @param string
+     */
+    private void showListView(String string) {
         VolleyInstance.getVolleyInatance().startRequest(string, new VolleyResult() {
 
             @Override
@@ -161,8 +173,12 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
 
             }
         });
+    }
 
-
+    /**
+     * 下拉刷新
+     */
+    private void onRefreshListener() {
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -181,21 +197,21 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
                                 Log.d("xxx", "datas:" + datas);
                                 newsAdapter.setDatas(datas);
                                 refreshLayout.setRefreshing(false);
-
                             }
-
                             @Override
                             public void failure() {
-
                             }
                         });
-
-
                     }
-                },3000);
+                },1500);
             }
         });
+    }
 
+    /**
+     * 上拉加载
+     */
+    private void onLoadListener() {
         refreshLayout.setOnLoadListener(new RefreshLayout.OnLoadListener() {
             @Override
             public void onLoad() {
@@ -213,19 +229,24 @@ public class NewsRecyclerUseFragment extends AbsBaseFragment implements AdapterV
                                 datas.addAll(list);
                                 newsAdapter.setDatas(datas);
                                 refreshLayout.setLoading(false);
-//                                refreshLayout.removeCallbacks();
                             }
                             @Override
                             public void failure() {
                             }
                         });
                     }
-                },3000);
+                },1500);
             }
         });
     }
 
-
+    /**
+     * 行布局点击
+     * @param parent
+     * @param view
+     * @param position
+     * @param id
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //        Intent intent = new Intent(context,DetailsActivity.class);

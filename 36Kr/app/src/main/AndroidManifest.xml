@@ -31,6 +31,10 @@
         <activity android:name=".ui.activity.SeekActivity"/>
         <!--新闻详情Activity注册-->
         <activity android:name=".ui.activity.DetailsActivity"/>
+        <!--36kr研究院注册-->
+        <activity android:name=".ui.activity.ResearchActivity"/>
+        <!--轮播详情-->
+        <activity android:name=".ui.activity.LunBoDetailsActivity"/>
     </application>
 
 </manifest>

@@ -1,96 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recent_rl"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fff">
 
     <ImageView
         android:id="@+id/recent_back_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/news_toolbar_icon_back"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:src="@mipmap/news_toolbar_icon_back" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="近期活动"
-        android:textSize="18sp"
         android:layout_alignTop="@id/recent_back_img"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:text="近期活动"
+        android:textSize="18sp" />
+
     <View
         android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#dcdcdc"
-        android:layout_below="@id/recent_back_img"/>
+        android:layout_below="@id/recent_back_img"
+        android:background="#dcdcdc" />
 
     <LinearLayout
         android:id="@+id/recent_linearlayout"
-        android:layout_below="@id/view1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/view1"
         android:orientation="horizontal"
         android:weightSum="2">
+
         <RelativeLayout
+            android:id="@+id/recent_type_rl"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/recent_type_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="活动类型"
-                android:textSize="18sp"
+                android:layout_centerInParent="true"
                 android:layout_margin="15dp"
-                android:layout_centerInParent="true"/>
+                android:text="活动类型"
+                android:textSize="18sp" />
+
             <ImageView
+                android:id="@+id/recent_type_down_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/icon_down"
-                android:layout_marginTop="10dp"
                 android:layout_alignTop="@id/recent_type_tv"
-                android:layout_toRightOf="@id/recent_type_tv"/>
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/recent_type_tv"
+                android:src="@mipmap/icon_down" />
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/recent_time_rl"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/recent_time_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="活动时间"
-                android:textSize="18sp"
+                android:layout_centerInParent="true"
                 android:layout_margin="15dp"
-                android:layout_centerInParent="true"/>
+                android:text="活动时间"
+                android:textSize="18sp" />
+
             <ImageView
+                android:id="@+id/recent_time_down_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/icon_down"
-                android:layout_marginTop="10dp"
                 android:layout_alignTop="@id/recent_time_tv"
-                android:layout_toRightOf="@id/recent_time_tv"/>
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/recent_time_tv"
+                android:src="@mipmap/icon_down" />
         </RelativeLayout>
+
+        <!--<RadioButton-->
+        <!--android:id="@+id/recent_type"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:button="@null"-->
+        <!--android:drawableRight="@mipmap/icon_down"-->
+        <!--android:gravity="center"-->
+        <!--android:paddingLeft="40dp"-->
+        <!--android:paddingRight="40dp"-->
+        <!--android:text="活动类型"-->
+        <!--android:textSize="16sp" />-->
+
+        <!--<RadioButton-->
+        <!--android:id="@+id/recent_time"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:button="@null"-->
+        <!--android:drawableRight="@mipmap/icon_down"-->
+        <!--android:gravity="center"-->
+        <!--android:paddingLeft="40dp"-->
+        <!--android:paddingRight="40dp"-->
+        <!--android:text="活动时间"-->
+        <!--android:textSize="16sp" />-->
 
 
     </LinearLayout>
+
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#dcdcdc"
-        android:layout_below="@id/recent_linearlayout"/>
+        android:layout_below="@id/recent_linearlayout"
+        android:background="#dcdcdc" />
 
     <ListView
         android:id="@+id/recent_listview"
-        android:layout_below="@id/view2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/view2">
 
     </ListView>
-
 
 
 </RelativeLayout>

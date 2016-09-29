@@ -97,7 +97,7 @@ public class NewsAdapter extends BaseAdapter {
 
             // 转换时间格式
             long stringT = dataBean1.getPublishTime();
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd HH:mm");
             String newsDateTv = null;
             long time = Long.valueOf(stringT);
             Date date = new Date(time);
