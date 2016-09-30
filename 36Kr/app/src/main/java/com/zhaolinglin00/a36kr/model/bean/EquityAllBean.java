@@ -267,7 +267,7 @@ public class EquityAllBean {
             public static class FundStatusBean {
                 private String crowd_funding_status;
                 private String desc;
-                private int start_time;
+                private long start_time;
 
                 public String getCrowd_funding_status() {
                     return crowd_funding_status;
@@ -285,7 +285,7 @@ public class EquityAllBean {
                     this.desc = desc;
                 }
 
-                public int getStart_time() {
+                public long getStart_time() {
                     return start_time;
                 }
 

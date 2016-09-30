@@ -34,9 +34,6 @@ public abstract class AbsBaseActivity extends AppCompatActivity {
         initViews();
         // 初始化数据
         initDatas();
-
-
-
     }
 
     /**

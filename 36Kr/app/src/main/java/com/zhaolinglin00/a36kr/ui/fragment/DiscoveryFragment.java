@@ -21,6 +21,7 @@ import com.zhaolinglin00.a36kr.model.net.Constants;
 import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
 import com.zhaolinglin00.a36kr.model.net.VolleyResult;
 import com.zhaolinglin00.a36kr.ui.activity.LunBoDetailsActivity;
+import com.zhaolinglin00.a36kr.ui.activity.NewsActivity;
 import com.zhaolinglin00.a36kr.ui.activity.RecentActivity;
 import com.zhaolinglin00.a36kr.ui.activity.ResearchActivity;
 import com.zhaolinglin00.a36kr.ui.activity.SeekActivity;
@@ -40,6 +41,8 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
     private LoopView discoveryLoopView;
     private RelativeLayout discoveryRecentRL,discoverySeekRL,discoveryDecearchRL;
     private List<LoopViewEntity> entities=new ArrayList<>();
+
+    private TextView discoveryNewsTv,discoveryDyanmicTv,discoveryInvestmentTv;
 
     public static DiscoveryFragment newInstance() {
 
@@ -67,7 +70,9 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
         discoveryRecentRL = byView(R.id.discovery_recent_rl);
         discoverySeekRL = byView(R.id.discovery_seek_rl);
         discoveryDecearchRL = byView(R.id.discovery_research_rl);
-
+        discoveryNewsTv = byView(R.id.discovery_news_tv);
+        discoveryDyanmicTv = byView(R.id.discovery_dynamic_tv);
+        discoveryInvestmentTv = byView(R.id.discovery_investment_tv);
     }
 
     @Override
@@ -76,6 +81,9 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
         discoveryRecentRL.setOnClickListener(this);
         discoverySeekRL.setOnClickListener(this);
         discoveryDecearchRL.setOnClickListener(this);
+        discoveryNewsTv.setOnClickListener(this);
+        discoveryDyanmicTv.setOnClickListener(this);
+        discoveryInvestmentTv.setOnClickListener(this);
 
         /**
          *  ScrollView的轮播图
@@ -139,6 +147,9 @@ public class DiscoveryFragment extends AbsBaseFragment implements View.OnClickLi
                 break;
             case R.id.discovery_research_rl:
                 goTo(ResearchActivity.class);
+                break;
+            case R.id.discovery_news_tv:
+                goTo(NewsActivity.class);
                 break;
 
         }

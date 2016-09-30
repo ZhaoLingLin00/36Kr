@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -37,7 +40,12 @@ public class DetailsActivity extends AbsBaseActivity implements View.OnClickList
     private WebView webView;
     private GestureDetector gestureDetector;// 手势监听
 
-    private ImageView detailsBackImg;
+    private ImageView detailsBackImg,detailsShowPopupImg;
+    private Boolean a = false;
+
+    private View detailsView;
+    private PopupWindow detailsPw;
+
 
     @Override
     protected int setLayout() {
@@ -54,10 +62,12 @@ public class DetailsActivity extends AbsBaseActivity implements View.OnClickList
         detailsTitleTv = byView(R.id.details_title_tv);
 
         detailsLl = byView(R.id.details_ll);
-
         webView = byView(R.id.webview);
-
         detailsBackImg = byView(R.id.details_back_img);
+        detailsShowPopupImg = byView(R.id.show_popupwindow_img);
+
+        detailsView = byView(R.id.details_view);
+
 
     }
 
@@ -65,6 +75,7 @@ public class DetailsActivity extends AbsBaseActivity implements View.OnClickList
     protected void initDatas() {
 
         detailsBackImg.setOnClickListener(this);
+        detailsShowPopupImg.setOnClickListener(this);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -181,6 +192,20 @@ public class DetailsActivity extends AbsBaseActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.details_back_img:
                 finish();
+                break;
+            case R.id.show_popupwindow_img:
+                if (a == false){
+                    detailsPw = new PopupWindow();
+                    detailsPw.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                    detailsPw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+                    View view = LayoutInflater.from(this).inflate(R.layout.details_popup_window,null);
+                    detailsPw.setContentView(view);
+                    detailsPw.showAsDropDown(detailsView);
+                    a = true;
+                }else {
+                    detailsPw.dismiss();
+                    a =false;
+                }
                 break;
         }
     }

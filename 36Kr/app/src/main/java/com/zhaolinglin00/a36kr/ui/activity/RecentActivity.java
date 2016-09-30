@@ -35,20 +35,14 @@ public class RecentActivity extends AbsBaseActivity implements View.OnClickListe
     private ImageView recentBackImg;
     private RecentAdapter recentAdapter;
     private ListView recentListView;
-
     private RelativeLayout recentTypeRL, recentTimeRL, recentRL;
     private LinearLayout recentLL;
-
     private ImageView recentTypeImg, recentTimeImg;
     private Dialog dialog;
-
     private Boolean i = false;
     private Boolean t = false;
     private PopupWindow typePw;
     private PopupWindow timePw;
-
-    private RadioButton type,time;
-
 
     @Override
     protected int setLayout() {
@@ -77,61 +71,6 @@ public class RecentActivity extends AbsBaseActivity implements View.OnClickListe
         recentBackImg.setOnClickListener(this);
         recentTimeRL.setOnClickListener(this);
         recentTypeRL.setOnClickListener(this);
-
-//        type.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (i == false) {
-////                    if (t == false) {
-////                        timePw.dismiss();
-////                    }
-//                    typePw = new PopupWindow();
-//                    typePw.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-//                    typePw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-//                    View view = getLayoutInflater().inflate(R.layout.recent_type_dialog, null);
-//                    typePw.setContentView(view);
-//                    typePw.setOutsideTouchable(true);
-//                    typePw.showAsDropDown(recentLL);
-////                    recentTypeImg.setImageResource(R.mipmap.icon_up);
-//
-//                    i = true;
-////                AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.dialog);
-////                View view = getLayoutInflater().inflate(R.layout.recent_type_dialog,null);
-////                builder.setView(view);
-////                dialog = builder.create();
-////                dialog.show();
-//                } else {
-//                    typePw.dismiss();
-////                    recentTypeImg.setImageResource(R.mipmap.icon_down);
-//                    i = false;
-//                }
-//
-//            }
-//        });
-//        time.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (t == false) {
-////                    if (i == true) {
-////                        typePw.dismiss();
-////                    }
-//                    timePw = new PopupWindow();
-//                    timePw.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-//                    timePw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-//                    View view = getLayoutInflater().inflate(R.layout.recent_time_popup_window, null);
-//                    timePw.setContentView(view);
-//                    timePw.setOutsideTouchable(true);
-//                    timePw.showAsDropDown(recentLL);
-////                    recentTimeImg.setImageResource(R.mipmap.icon_up);
-//                    t = true;
-//                } else {
-//                    timePw.dismiss();
-////                    recentTimeImg.setImageResource(R.mipmap.icon_down);
-//                    t = false;
-//                }
-//
-//            }
-//        });
 
         recentAdapter = new RecentAdapter(this);
         recentListView.setAdapter(recentAdapter);
@@ -174,7 +113,6 @@ public class RecentActivity extends AbsBaseActivity implements View.OnClickListe
                     typePw.setOutsideTouchable(false);
                     typePw.showAsDropDown(recentLL);
                     recentTypeImg.setImageResource(R.mipmap.icon_up);
-
                     i = true;
 //                AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.dialog);
 //                View view = getLayoutInflater().inflate(R.layout.recent_type_dialog,null);
@@ -195,9 +133,6 @@ public class RecentActivity extends AbsBaseActivity implements View.OnClickListe
             case R.id.recent_time_rl:
 //                typePw.dismiss();
                 if (t == false) {
-//                    if (i == true) {
-//                        typePw.dismiss();
-//                    }
                     timePw = new PopupWindow();
                     timePw.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
                     timePw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);

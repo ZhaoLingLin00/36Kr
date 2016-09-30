@@ -7,17 +7,11 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.zhaolinglin00.a36kr.R;
-import com.zhaolinglin00.a36kr.model.bean.LunBoBean;
-import com.zhaolinglin00.a36kr.model.net.Constants;
-import com.zhaolinglin00.a36kr.model.net.VolleyInstance;
-import com.zhaolinglin00.a36kr.model.net.VolleyResult;
-
-import java.util.List;
 
 /**
  * Created by dllo on 16/9/29.
+ * 轮播图Activity
  */
 public class LunBoDetailsActivity extends AbsBaseActivity implements View.OnClickListener {
 
@@ -61,7 +55,6 @@ public class LunBoDetailsActivity extends AbsBaseActivity implements View.OnClic
             case R.id.lunbo_back_img:
                 finish();
                 break;
-
         }
     }
 }

@@ -82,12 +82,12 @@ public class EquityAllAdapter extends BaseAdapter {
             equityAllViewHolder.equityHatcherNameTv.setText(dataBean1.getCf_advantage().get(1).getAdcontent());
             String muzi = dataBean1.getFundStatus().getDesc();
             equityAllViewHolder.equityMuziTv.setText(muzi);
-            if (muzi.equals("募资中")) {
-                equityAllViewHolder.equitySubscribeTv.setText("认购");
-            } else {
-                equityAllViewHolder.equitySubscribeTv.setTextColor(Color.WHITE);
-                equityAllViewHolder.equitySubscribeTv.setText("去看看");
-            }
+//            if (muzi.equals("募资中")) {
+//                equityAllViewHolder.equitySubscribeTv.setText("认购");
+//            } else {
+//                equityAllViewHolder.equitySubscribeTv.setTextColor(Color.WHITE);
+//                equityAllViewHolder.equitySubscribeTv.setText("去看看");
+//            }
 
             final EquityAllViewHolder finalEquityAllViewHolder = equityAllViewHolder;
             equityAllViewHolder.equityConcernTv.setOnClickListener(new View.OnClickListener() {

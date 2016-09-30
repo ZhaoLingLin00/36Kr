@@ -74,4 +74,12 @@ public final class Constants {
      * 新闻详情界面拼接前半段
      */
     public static final String DETAILS_URL="https://rong.36kr.com/api/mobi/news/";
+    /**
+     * 发现界面新闻
+     */
+    public static final String DISCOVERY_NEWS_URL="https://www.36jr.com/news/list";
+    /**
+     * 作者信息网址
+     */
+    public static final String AUTHOR_URL ="https://rong.36kr.com/api/mobi/news/5041796/author-region";
 }

@@ -105,7 +105,7 @@ public class NewsAdapter extends BaseAdapter {
             // 将转换格式完成的时间set
             newsViewHolder.newsDateTv.setText(finalDate);
             // 毕加索解析网络图片裁剪大小
-            Picasso.with(context).load(dataBean1.getFeatureImg()).resize(ScreenSizeUtil.getScreenWidth(context) / 4, ScreenSizeUtil.getScreenheight(context) / 8).into(newsViewHolder.newsLogoImg);
+            Picasso.with(context).load(dataBean1.getFeatureImg()).resize(ScreenSizeUtil.getScreenWidth(context) / 9*2, ScreenSizeUtil.getScreenheight(context) / 8).into(newsViewHolder.newsLogoImg);
         }
         return convertView;
     }
